@@ -1,0 +1,145 @@
+<!-- <body>
+   <div class="px">
+    <div class="container">
+      <div class="slider">
+        <div class="slider-wrapper">
+          <div
+            *ngFor="let slide of slides; let i = index"
+            [class.slide-active]="i === currentIndex"
+            class="slide"
+          >
+            <figure>
+              <img [src]="slide.imgUrl" width="700" height="420" alt="Image" />
+              <figcaption>{{ slide.caption }}</figcaption>
+            </figure>
+            <div class="slider-content">
+              <h2>{{ slide.title }}</h2>
+              <p>{{ slide.description }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="slider-controls">
+          <span
+            class="slide-control-left"
+            (click)="prevSlide()"
+            [class.slide-control-disabled]="currentIndex === 0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#ffffff"
+            >
+              <path
+                d="m432-480 156 156q11 11 11 28t-11 28q-11 11-28 11t-28-11L348-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 28-11t28 11q11 11 11 28t-11 28L432-480Z"
+              />
+            </svg>
+          </span>
+          <span
+            class="slide-control-right"
+            (click)="nextSlide()"
+            [class.slide-control-disabled]="currentIndex === slides.length - 1"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#ffffff"
+            >
+              <path
+                d="M504-480 348-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L404-268q-11 11-28 11t-28-11q-11-11-11-28t11-28l156-156Z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div> 
+</body> -->
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- convert into carousel -->
+    <div class="wrapper" *ngFor="let arr of homeArr">
+      <h3>{{ arr.home_subheader_2 }}</h3>
+
+      <ng-container *ngIf="arr.home_subheader_bullet_2">
+        <ul>
+          <li>{{ arr.home_subheader_bullet_2 }}</li>
+        </ul>
+      </ng-container>
+
+      <!-- <img /> -->
+    </div>
+
+    <div class="wrapper" *ngFor="let arr of homeArr">
+      <h1>{{ arr.home_title_2 }}</h1>
+      <h3>{{ arr.home_subheader_3 }}</h3>
+      <h3>{{ arr.home_subheader_4 }}</h3>
+      <h3>{{ arr.home_subheader_5 }}</h3>
+    </div>
+
+    <div class="wrapper" *ngFor="let arr of homeArr">
+      <h1>{{ arr.home_title_3 }}</h1>
+
+      <!-- <img /> -->
+
+      <!-- carousel if possible -->
+    </div>
+
+    <div class="wrapper" *ngFor="let arr of homeArr">
+      <h1>{{ arr.home_title_4 }}</h1>
+      <h3>{{ arr.home_subheader_6 }}</h3>
+
+      <!-- <img /> -->
+      <h3>{{ arr.home_subheader_7 }}</h3>
+
+      <!-- <img /> -->
+      <h3>{{ arr.home_subheader_8 }}</h3>
+
+      <!-- <img /> -->
+    </div>
+
+    <div class="wrapper" *ngFor="let arr of homeArr">
+      <h1>{{ arr.home_title_5 }}</h1>
+
+      <p>{{ arr.home_title_5_para }}</p>
+    </div>
+
+    <div class="wrapper" *ngFor="let arr of homeArr">
+      <h1>{{ arr.home_title_6 }}</h1>
+      <h3>{{ arr.home_subheader_9}}</h3>
+      <!-- <img/> * 2 -->
+
+      <h3>{{arr.home_subheader_10}}</h3>
+
+      <!-- <img/> * 3 carousel -->
+
+
+    </div>
+  </div>
+</div>
+
+<!-- 1st carousel start  -->
+
+<owl-carousel-o [options]="{ loop: true, center: true, margin: 10, items: 1, autoplay: true, autoplayTimeout: 3000, animateOut: 'fadeOut' }">
+  <ng-container *ngFor="let image of images">
+    <ng-template carouselSlide>
+      <div class="carousel-item" [class.active]="isActive(image)">
+        <img [src]="image.src" [alt]="image.alt" class="carousel-image"/>
+        <div class="overlay-text">{{ image.alt }}</div>
+      </div>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
+
+<!-- 1st carousel End  -->
+
+
+
+
+
+
+

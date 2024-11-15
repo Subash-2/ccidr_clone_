@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="wrapper" *ngFor="let arr of resourceArr">
+            <h1>{{arr.resource_header_1}}</h1>
+            <p>{{arr.resource_para}}</p>
+        </div>
+        <div class="wrapper" *ngFor="let arr of resourceArr">
+            <h1>{{arr.resource_header_2}}</h1>
+            <p>{{arr.resource_subheader_bullet_1}}</p>
+            <strong>{{arr.resource_subheader_title_1}}</strong>
+            <ng-container *ngIf="arr.resource_subheader_title_bullet_1">
+
+                <li>{{arr.resource_subheader_title_bullet_1}}</li>
+            </ng-container>
+        </div>
+        <div class="wrapper" *ngFor="let arr of resourceArr">
+            <h1>{{arr.resource_header_3}}</h1>
+            <p>{{arr.resource_subheader_bullet_3}}</p>  
+        </div>
+        <div class="wrapper" *ngFor="let arr of resourceArr">
+            <h1>{{arr.resource_header_4}}</h1>
+            <p>{{arr.resource_para_2}}</p>  
+            <strong>{{arr.resource_subheader_title_2}}</strong>
+            <ng-container *ngIf="arr.resource_subheader_title_bullet_2">
+
+                <li>{{arr.resource_subheader_title_bullet_2}}</li>
+            </ng-container>
+        </div>
+        <div class="wrapper" *ngFor="let arr of resourceArr">
+            <h1>{{arr.resource_header_5}}</h1>
+            <p>{{arr.resource_subheader_bullet_3}}</p>
+ 
+            <strong>{{arr.resource_subheader_title_3}}</strong>
+            <ng-container *ngIf="arr.resource_subheader_title_bullet_3">
+
+                <li>{{arr.resource_subheader_title_bullet_3}}</li>
+            </ng-container>
+        </div>
+        <div class="wrapper" *ngFor="let arr of resourceArr">
+            <h1>{{arr.resource_header_6}}</h1>
+            <p>{{arr.resource_subheader_bullet_6}}</p>
+ 
+        </div>
+    </div>
+</div>

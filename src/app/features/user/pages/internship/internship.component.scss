@@ -1,0 +1,139 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.title-container {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+  .title-container.active {
+    opacity: 1;
+  }
+  
+  .animated-text {
+    display: inline-block;
+    white-space: nowrap;
+    background-color: red;
+    font-size: 2em;
+    font-weight: bold;
+  }
+  
+
+  .carousel {
+    position: relative;
+    overflow: hidden;
+  
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+  
+    .carousel-item {
+      flex: 0 0 100%;
+      display: none;
+  
+      &.active {
+        display: block;
+      }
+    }
+  
+    .carousel-controls {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      
+      button {
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+    }
+  
+    .carousel-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+  
+      .indicator {
+        background: #ccc;
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        border-radius: 50%;
+        cursor: pointer;
+  
+        &.active {
+          background: #000;
+        }
+      }
+    }
+  }
+  
+
+
+  .carousel {
+    position: relative;
+    overflow: hidden;
+  
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+  
+    .carousel-item {
+      flex: 0 0 100%;
+      display: none;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+  
+      &.active {
+        display: block;
+      }
+    }
+  
+    .carousel-controls {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      
+      button {
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+    }
+  
+    .carousel-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+  
+      .indicator {
+        background: #ccc;
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        border-radius: 50%;
+        cursor: pointer;
+  
+        &.active {
+          background: #000;
+        }
+      }
+    }
+  }
+  

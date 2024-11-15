@@ -1,0 +1,43 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.bubble-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    // width: 100vw;
+    height: 100vh;
+    margin-bottom: 20px;
+  }
+  
+  .animated-image { 
+    aspect-ratio: 4 / 2;  
+    opacity: 0;
+    transform: scale(0.5);
+    transition: transform 2s ease-in-out, opacity 2s ease-in-out;
+  }
+  
+  .animated-image.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  //Text Animation 
+  h1 {
+    font-family: 'Courier New', Courier, monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.1px solid;
+    width: fit-content;
+    animation: blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+  }
+  
+  

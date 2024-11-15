@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="wrapper" *ngFor="let arr of eventsArr">
+            <h3>{{arr.events_header_1}}</h3>
+            <ng-container *ngIf="arr.events_bullet_1">
+                <li>{{arr.events_bullet_1}}</li>
+            </ng-container>
+        </div>
+        <div class="wrapper" *ngFor="let arr of eventsArr">
+            <h3>{{arr.events_header_2}}</h3>
+            <ng-container *ngIf="arr.events_bullet_2">
+                <li>{{arr.events_bullet_2}}</li>
+            </ng-container>
+
+        </div>
+        <div class="wrapper" *ngFor="let arr of eventsArr">
+            <h3>{{arr.events_header_3}}</h3>
+            <p>{{arr.events_para_3}}</p>
+        </div>
+        <div class="wrapper" *ngFor="let arr of eventsArr">
+            <h3>{{arr.events_header_4}}</h3>
+            <p>{{arr.events_para_4}}</p>
+        </div>
+        <div class="wrapper" *ngFor="let arr of eventsArr">
+            <h3>{{arr.events_header_5}}</h3>
+            <p>{{arr.events_para_5}}</p>
+        </div>
+        <div class="wrapper" *ngFor="let arr of eventsArr">
+            <h3>{{arr.events_header_6}}</h3>
+            <p>{{arr.events_para_6}}</p>
+        </div>
+        <div class="wrapper" *ngFor="let arr of eventsArr">
+            <h3>{{arr.events_header_7}}</h3>
+            <p>{{arr.events_para_7}}</p>
+        </div>
+    </div>
+</div>

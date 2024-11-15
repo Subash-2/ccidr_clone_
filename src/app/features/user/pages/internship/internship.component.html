@@ -1,0 +1,121 @@
+<!-- <div class="container-fluid">
+    <div class="row">
+    </div>
+
+    <div class="title-container" id="title" *ngIf="textToShow">
+        <h1 class="animated-text">{{ textToShow }}</h1>
+      </div>
+
+</div> -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="wrapper" *ngFor="let arr of internshipArr">
+      <h2>{{ arr.internship_header }}</h2>
+
+      <p>{{ arr.internship_para }}</p>
+    </div>
+    <div class="wrapper" *ngFor="let arr of internshipArr">
+      <h4>{{ arr.internship_subheader_1 }}</h4>
+      <strong>{{ arr.internship_subheader_title_1 }}</strong>
+      <ul>
+        <ng-container *ngIf="arr.internship_subheader_bullet_1">
+
+          <li>{{ arr.internship_subheader_bullet_1 }}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="wrapper" *ngFor="let arr of internshipArr">
+      <h4>{{ arr.internship_subheader_2 }}</h4>
+      <strong>{{ arr.internship_subheader_title_2 }}</strong>
+      <ul>
+        <ng-container *ngIf="arr.internship_subheader_bullet_2">
+
+          <li>{{ arr.internship_subheader_bullet_2 }}</li>
+        </ng-container>
+      </ul>
+    </div>
+
+    <div class="wrapper" *ngFor="let arr of internshipArr">
+      <strong>{{ arr.internship_subheader_title_3 }}</strong>
+      <ul>
+        <ng-container *ngIf="arr.internship_subheader_bullet_3">
+
+          <li>{{ arr.internship_subheader_bullet_3 }}</li>
+        </ng-container>
+      </ul>
+    </div>
+     <div class="wrapper" *ngFor="let arr of internshipArr">
+      <h4>{{ arr.internship_subheader_3 }}</h4>
+      <strong>{{ arr.internship_subheader_title_4 }}</strong>
+      <ul>
+        <ng-container *ngIf="arr.internship_subheader_bullet_4">
+
+          <li>{{ arr.internship_subheader_bullet_4 }}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="wrapper" *ngFor="let arr of internshipArr">
+      <strong>{{ arr.internship_subheader_title_5 }}</strong>
+      <ul>
+        <ng-container *ngIf="arr.internship_subheader_bullet_5">
+          
+          <li>{{ arr.internship_subheader_bullet_5 }}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="wrapper" *ngFor="let arr of internshipArr">
+      <h4>{{ arr.internship_subheader_4 }}</h4>
+      <strong>{{ arr.internship_subheader_title_6 }}</strong>
+      <ul>
+        <ng-container *ngIf="arr.internship_subheader_bullet_6">
+
+          <li>{{ arr.internship_subheader_bullet_6 }}</li>
+        </ng-container>
+      </ul>
+    </div> 
+    <div class="wrapper" *ngFor="let arr of internshipArr">
+      <strong>{{ arr.internship_subheader_title_7 }}</strong>
+      <ul>
+
+        <ng-container *ngIf="arr.internship_subheader_bullet_7">
+        <li>{{ arr.internship_subheader_bullet_7 }}</li>
+      </ng-container>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div id="carousel" class="carousel">
+    <div class="carousel-inner">
+      <div 
+        *ngFor="let slide of slides; let i = index" 
+        class="carousel-item" 
+        [class.active]="i === currentSlide"
+        [ngStyle]="{'background-image': 'url(' + slide.imageUrl + ')'}"
+      >
+        <!-- Optional content for each slide can go here -->
+      </div>
+    </div>
+    
+    <div class="carousel-controls">
+      <button class="prev" (click)="prevSlide()">&lt;</button>
+      <button class="next" (click)="nextSlide()">&gt;</button>
+    </div>
+  
+    <div class="carousel-indicators">
+      <button 
+        *ngFor="let slide of slides; let i = index" 
+        class="indicator" 
+        [class.active]="i === currentSlide" 
+        (click)="goToSlide(i)"
+      ></button>
+    </div>
+  </div>
+  
+  
+  
+</div>

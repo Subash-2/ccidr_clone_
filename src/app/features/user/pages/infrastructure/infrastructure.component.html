@@ -1,0 +1,10 @@
+<div class="bubble-container" *ngFor="let image of images">
+  <img
+    [src]="image.imgUrl"
+    alt="Animated Image"
+    class="animated-image"
+    #imageElement
+  />
+  <!-- <h1>{{ displayedText }}</h1> -->
+  <h5 class="animated-image" #imageElement>{{ image.title }}</h5>
+</div>

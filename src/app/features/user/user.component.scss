@@ -1,0 +1,31 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    height: 100vh;
+}
+.footer{
+    position: relative;
+    bottom: 0px;
+
+}
+
+.header{
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 1rem;
+    background-color: #333; /* Default color */
+    transition: background-color 0.3s ease;
+  }
+  
+  nav.scrolled {
+    background-color: red; /* Color when scrolled */
+  }
+  

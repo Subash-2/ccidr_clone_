@@ -1,0 +1,227 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="wrapper" *ngFor="let arr of contentArr">
+      <!-- Check if training_title or training_bullet is not null -->
+      <h5>{{ arr.training_title }}</h5>
+      <ul>
+        <ng-container *ngIf="arr.training_bullet">
+          <li>{{ arr.training_bullet }}</li>
+        </ng-container>
+      </ul>
+    </div>
+
+    <div class="wrapper" *ngFor="let arr of contentArr">
+      <h5>{{ arr.training_content_2 }}</h5>
+      <ul>
+        <ng-container *ngIf="arr.training_bullet_2">
+          <li>{{ arr.training_bullet_2 }}</li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="wrapper" *ngFor="let arr of contentArr">
+      <h5>{{ arr.training_title_3 }}</h5>
+      <ul>
+        <ng-container *ngIf="arr.training_bullet_3">
+          <li>{{ arr.training_bullet_3 }}</li>
+        </ng-container>
+      </ul>
+    </div>
+
+    <div class="wrapper" *ngFor="let arr of contentArr">
+      <h5>{{ arr.training_title_4 }}</h5>
+      <ng-container *ngIf="arr.training_para_1">
+        <p>{{ arr.training_para_1 }}</p>
+      </ng-container>
+    </div>
+
+    <div class="wrapper" *ngFor="let arr of contentArr">
+      <h5>{{ arr.training_title_5 }}</h5>
+      <ng-container *ngIf="arr.training_bullet_4">
+        <p>{{ arr.training_bullet_4 }}</p>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+
+<!-- Beneficiary topic start  -->
+
+<div class="container-fluid">
+    <div class="row" *ngFor="let newArr of beneficiaryArr">
+       <h1>{{newArr.training_beneficiaries_title}}</h1>
+       <h3>{{newArr.training_beneficiary_header}}</h3>
+       <h3>{{newArr.training_beneficiary_subheader_1}}</h3>
+
+
+       <ng-container *ngIf="newArr.Training_beneficiary_bullet_1">
+           <p>{{newArr.Training_beneficiary_bullet_1}}</p>
+       </ng-container>
+    </div>
+
+    <div class="row" *ngFor="let newArr of beneficiaryArr">
+     
+  
+        <h3>{{newArr.training_beneficiary_subheader_2}}</h3>
+        <ng-container *ngIf="newArr.Training_beneficiary_bullet_2">
+            <p>{{newArr.Training_beneficiary_bullet_2}}</p>
+        </ng-container>
+     </div>
+     <div class="row" *ngFor="let newArr of beneficiaryArr">
+     
+  
+        <h3>{{newArr.training_beneficiary_subheader_3}}</h3>
+        <ng-container *ngIf="newArr.Training_beneficiary_bullet_3">
+            <p>{{newArr.Training_beneficiary_bullet_3}}</p>
+        </ng-container>
+     </div>
+
+     <div class="row" *ngFor="let newArr of beneficiaryArr">
+     
+  
+        <h3>{{newArr.Training_beneficiary_subheader_4}}</h3>
+        <ng-container *ngIf="newArr.Training_beneficiary_bullet_4">
+            <p>{{newArr.Training_beneficiary_bullet_4}}</p>
+        </ng-container>
+     </div>
+
+     <div class="row" *ngFor="let newArr of beneficiaryArr">
+     
+  
+        <h3>{{newArr.Training_beneficiary_subheader_5}}</h3>
+        <ng-container *ngIf="newArr.Training_beneficiary_bullet_5">
+            <p>{{newArr.Training_beneficiary_bullet_5}}</p>
+        </ng-container>
+     </div>
+
+     <div class="row" *ngFor="let newArr of beneficiaryArr">
+     
+  
+        <h3>{{newArr.Training_beneficiary_subheader_6}}</h3>
+        <ng-container *ngIf="newArr.Training_beneficiary_bullet_6">
+            <p>{{newArr.Training_beneficiary_bullet_6}}</p>
+        </ng-container>
+     </div>
+     <div class="row" *ngFor="let newArr of beneficiaryArr">
+     
+  
+        <h3>{{newArr.Training_beneficiary_subheader_7}}</h3>
+        <ng-container *ngIf="newArr.Training_beneficiary_bullet_7">
+            <p>{{newArr.Training_beneficiary_bullet_7}}</p>
+        </ng-container>
+     </div>
+     <div class="row" *ngFor="let newArr of beneficiaryArr">
+     
+  
+        <h3>{{newArr.Training_beneficiary_subheader_8}}</h3>
+        <ng-container *ngIf="newArr.Training_beneficiary_bullet_8">
+            <p>{{newArr.Training_beneficiary_bullet_8}}</p>
+        </ng-container>
+     </div>
+     <div class="row" *ngFor="let newArr of beneficiaryArr">
+        <h3>{{newArr.Training_beneficiary_subheader_9}}</h3>
+        <ng-container *ngIf="newArr.Training_beneficiary_bullet_9">
+            <p>{{newArr.Training_beneficiary_bullet_9}}</p>
+        </ng-container>
+     </div>
+     <div class="row" *ngFor="let newArr of beneficiaryArr">  
+        <h3>{{newArr.Training_beneficiary_subheader_10}}</h3>
+        <ng-container *ngIf="newArr.Training_beneficiary_bullet_10">
+            <p>{{newArr.Training_beneficiary_bullet_10}}</p>
+        </ng-container>
+     </div>
+
+<!-- Beneficiary topic end  -->
+
+
+    <!-- Judiciary topic Start-->
+
+    <div class="wrapper" *ngFor="let judArr of judiciaryArr">
+        <h1>{{judArr.judiciary_title}}</h1>
+        <p>{{judArr.judiciary_para}}</p>
+        <!-- <img/> -->
+    </div>
+
+    <div class="wrapper" *ngFor="let judArr of judiciaryArr">
+        <h3>{{judArr.judiciary_header}}</h3>
+        <ng-container *ngIf="judArr.judiciary_bullet">
+            <p>{{judArr.judiciary_bullet}}</p>
+        </ng-container>
+    </div>
+    <div class="wrapper" *ngFor="let judArr of judiciaryArr">
+        <h3>{{judArr.judiciary_header_2}}</h3>
+        <ng-container *ngIf="judArr.judiciary_bullet_2">
+        <p>{{judArr.judiciary_bullet_2}}</p>
+    </ng-container>
+        <!-- <img/> -->
+
+    </div>
+
+    <div class="wrapper" *ngFor="let judArr of judiciaryArr">
+   <p>{{judArr.judiciary_subheader}}</p>
+        <!-- <img/> -->
+   
+    </div>
+
+
+    <!-- Judiciary topic end-->
+
+
+    <!-- Capacity building Start -->
+
+    <div class="wrapper" *ngFor="let buildArr of buildingArr">
+
+        <h1>{{buildArr.Capacity_building_title}}</h1>
+        <p>{{buildArr.Capacity_building_para}}</p>
+
+        
+        <!-- <img/> -->
+        
+    </div>
+
+        
+    <div class="wrapper" *ngFor="let buildArr of buildingArr">
+        <h3>{{buildArr.Capacity_building_subheader}}</h3>
+        <!-- <img/> -->
+    </div>
+
+            
+    <div class="wrapper" *ngFor="let buildArr of buildingArr">
+        <h1>{{buildArr.virtual_title}}</h1>
+        <ng-container *ngIf="buildArr.virtual_para">
+            <p>{{buildArr.virtual_para}}</p>
+        </ng-container>
+
+        
+        <!-- <img/> -->
+    </div>
+
+    <!-- Capacity building end -->
+
+
+
+    
+<!-- 2nd carousel start -->
+<div class="rc-carousel" data-rc-carousel>
+    <div class="rc-carousel-strip">
+      <div class="rc-carousel-box" data-rc-carousel-box>
+    
+        <div *ngFor="let image of images; let i = index" class="rc-carousel-item" [attr.data-rc-carousel-item]="i + 1">
+          <img class="rc-carousel-item-image" [src]="image.src" [alt]="image.alt" />
+        </div>
+     
+        <div *ngFor="let image of images; let i = index" class="rc-carousel-item cloned" [attr.data-rc-carousel-item]="i + images.length + 1">
+          <img class="rc-carousel-item-image" [src]="image.src" [alt]="image.alt" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- 2nd carousel End -->
+
+
+
+</div>
+
+
+

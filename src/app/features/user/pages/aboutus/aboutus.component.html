@@ -1,29 +1,77 @@
 <div class="container-fluid">
-  <div class="row" *ngFor="let about of contentArr">
-    <p>{{ about.aboutus_content }}</p>
-    <p>{{ about.aboutus_content_2 }}</p>
-    <p>{{ about.aboutus_content_3 }}</p>
-    <p>{{ about.aboutus_content_4 }}</p>
-    <br />
-    <p>{{ about.aboutus_content_5 }}</p>
-    <h3>{{ about.aboutus_heading_1 }}</h3>
-    <ol>
-      <li>{{ about.aboutus_bullet_1 }}</li>
-      <li>{{ about.aboutus_bullet_2 }}</li>
-      <li>{{ about.aboutus_bullet_3 }}</li>
-      <li>{{ about.aboutus_bullet_4 }}</li>
-    </ol>
-    <h3>{{ about.aboutus_heading_2 }}</h3>
-    <ul>
-      <li>{{ about.aboutus_bullet_5 }}</li>
-      <li>{{ about.aboutus_bullet_6 }}</li>
-      <li>{{ about.aboutus_bullet_7 }}</li>
-      <li>{{ about.aboutus_bullet_8 }}</li>
-      <li>{{ about.aboutus_bullet_9 }}</li>
-      <li>{{ about.aboutus_bullet_10 }}</li>
-      <li>{{ about.aboutus_bullet_11 }}</li>
-    </ul>
+  <div class="row">
+    <h2 class="title animated-text">About Us</h2>
+  </div>
+  <!-- Main Content -->
+  <div class="wrapper_paras-container">
+    <div class="wrapper_paras">
+      <div class="" *ngFor="let arr of contentArr">
+        <ng-container *ngIf="arr.aboutus_para">
+          <p class="para_container">{{ arr.aboutus_para }}</p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <!-- Objectives  -->
+   <div class="heading-text">
+     <h3 class="animate-text">Objectives</h3>
+   </div>
+  <div class="my-flex">
+    <div>
+      <div *ngFor="let arr of contentArr">
+        <p>{{ arr?.aboutus_subheader_bullet }}</p>
+      </div>
+    </div>
+    <div>
+      <div class="" *ngFor="let arr of contentArr">
+        <ng-container *ngIf="arr.objective_image">
+          <img
+            [src]="'https://ccitr.emeetify.com' + arr.objective_image.url"
+            alt="Objective Image"
+            class="objective-image"
+          />
+        </ng-container>
+      </div>
+    </div>
+  </div>
 
- 
+  <h2>{{ bullet }}</h2>
+
+  <!-- key Activities  -->
+  <div class="">
+    <div class="heading-text">
+    <ng-container *ngFor="let arr of contentArr">
+        <ng-container *ngIf="arr.aboutus_subheader_2">
+          <h3 class="animate-text heading-text">{{ arr.aboutus_subheader_2 }}</h3>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="key_container">
+    <div class="">
+      <div class="" *ngFor="let arr of contentArr">
+        <ng-container *ngIf="arr.Key_image">
+          <img
+            [src]="'https://ccitr.emeetify.com' + arr.Key_image.url"
+            alt="Objective Image"
+            class="objective-image"
+          />
+        </ng-container>
+      </div>
+    </div>
+    <div>
+      <div *ngFor="let arr of contentArr">
+        <ng-container *ngIf="arr.aboutus_subheader_2_bullet">
+          <li>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"
+                /></svg></span
+            >&nbsp;{{ arr.aboutus_subheader_2_bullet }}
+          </li>
+        </ng-container>
+      </div>
+    </div>
   </div>
 </div>

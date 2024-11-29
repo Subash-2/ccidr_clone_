@@ -1,145 +1,342 @@
-<!-- <body>
-   <div class="px">
-    <div class="container">
-      <div class="slider">
-        <div class="slider-wrapper">
-          <div
-            *ngFor="let slide of slides; let i = index"
-            [class.slide-active]="i === currentIndex"
-            class="slide"
-          >
-            <figure>
-              <img [src]="slide.imgUrl" width="700" height="420" alt="Image" />
-              <figcaption>{{ slide.caption }}</figcaption>
-            </figure>
-            <div class="slider-content">
-              <h2>{{ slide.title }}</h2>
-              <p>{{ slide.description }}</p>
-            </div>
-          </div>
-        </div>
-        <div class="slider-controls">
-          <span
-            class="slide-control-left"
-            (click)="prevSlide()"
-            [class.slide-control-disabled]="currentIndex === 0"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#ffffff"
-            >
-              <path
-                d="m432-480 156 156q11 11 11 28t-11 28q-11 11-28 11t-28-11L348-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 28-11t28 11q11 11 11 28t-11 28L432-480Z"
-              />
-            </svg>
-          </span>
-          <span
-            class="slide-control-right"
-            (click)="nextSlide()"
-            [class.slide-control-disabled]="currentIndex === slides.length - 1"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#ffffff"
-            >
-              <path
-                d="M504-480 348-636q-11-11-11-28t11-28q11-11 28-11t28 11l184 184q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L404-268q-11 11-28 11t-28-11q-11-11-11-28t11-28l156-156Z"
-              />
-            </svg>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div> 
-</body> -->
-
 <div class="container-fluid">
+  <!-- Flagship events Start -->
   <div class="row">
-    <!-- convert into carousel -->
-    <div class="wrapper" *ngFor="let arr of homeArr">
-      <h3>{{ arr.home_subheader_2 }}</h3>
-
-      <ng-container *ngIf="arr.home_subheader_bullet_2">
-        <ul>
-          <li>{{ arr.home_subheader_bullet_2 }}</li>
-        </ul>
-      </ng-container>
-
-      <!-- <img /> -->
-    </div>
-
-    <div class="wrapper" *ngFor="let arr of homeArr">
-      <h1>{{ arr.home_title_2 }}</h1>
-      <h3>{{ arr.home_subheader_3 }}</h3>
-      <h3>{{ arr.home_subheader_4 }}</h3>
-      <h3>{{ arr.home_subheader_5 }}</h3>
-    </div>
-
-    <div class="wrapper" *ngFor="let arr of homeArr">
-      <h1>{{ arr.home_title_3 }}</h1>
-
-      <!-- <img /> -->
-
-      <!-- carousel if possible -->
-    </div>
-
-    <div class="wrapper" *ngFor="let arr of homeArr">
-      <h1>{{ arr.home_title_4 }}</h1>
-      <h3>{{ arr.home_subheader_6 }}</h3>
-
-      <!-- <img /> -->
-      <h3>{{ arr.home_subheader_7 }}</h3>
-
-      <!-- <img /> -->
-      <h3>{{ arr.home_subheader_8 }}</h3>
-
-      <!-- <img /> -->
-    </div>
-
-    <div class="wrapper" *ngFor="let arr of homeArr">
-      <h1>{{ arr.home_title_5 }}</h1>
-
-      <p>{{ arr.home_title_5_para }}</p>
-    </div>
-
-    <div class="wrapper" *ngFor="let arr of homeArr">
-      <h1>{{ arr.home_title_6 }}</h1>
-      <h3>{{ arr.home_subheader_9}}</h3>
-      <!-- <img/> * 2 -->
-
-      <h3>{{arr.home_subheader_10}}</h3>
-
-      <!-- <img/> * 3 carousel -->
+    <ng-container *ngFor="let arr of homeArr">
+      <div class="title_text">
+        <ng-container *ngIf="arr.home_subheader_2">
+          <h3 class="animated-text">{{ arr.home_subheader_2 }}</h3>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+  <app-cards></app-cards>
 
 
+
+  <!-- Digital Forensic infrastructure Lab Start-->
+  <div class="row">
+    <div class="lab-container">
+      <div class="lab-title-text" *ngFor="let arr of homeArr">
+        <ng-container *ngIf="arr.home_title_2">
+          <h3 class="animated-text">{{ arr.home_title_2 }}</h3>
+        </ng-container>
+      </div>
+      <div class="lab-containers">
+        <ng-container *ngFor="let arr of homeArr">
+          <div class="img-allign" *ngIf="arr.Infrastructure_image?.url">
+            <img
+              [src]="
+                'https://ccitr.emeetify.com' + arr.Infrastructure_image?.url
+              "
+              alt=""
+              class="lab-image"
+            />
+            <h5>{{ arr.home_subheader_3 }}</h5>
+          </div>
+        </ng-container>
+      </div>
     </div>
   </div>
-</div>
-
-<!-- 1st carousel start  -->
-
-<owl-carousel-o [options]="{ loop: true, center: true, margin: 10, items: 1, autoplay: true, autoplayTimeout: 3000, animateOut: 'fadeOut' }">
-  <ng-container *ngFor="let image of images">
-    <ng-template carouselSlide>
-      <div class="carousel-item" [class.active]="isActive(image)">
-        <img [src]="image.src" [alt]="image.alt" class="carousel-image"/>
-        <div class="overlay-text">{{ image.alt }}</div>
+  <!-- Experience the best-in-class Cyber Facilities -->
+  <div class="row">
+    <div class="wrapper">
+      <div class="heading-text">
+        <ng-container *ngFor="let arr of homeArr">
+          <ng-container *ngIf="arr.home_title_3">
+            <h3 class="animated-text">{{ arr.home_title_3 }}</h3>
+          </ng-container>
+        </ng-container>
       </div>
-    </ng-template>
+
+      <!-- Transition Carousel Starts -->
+
+      <div class="transforming-carousel">
+        <ng-container *ngIf="images?.length">
+          <owl-carousel-o
+            [options]="{
+              loop: true,
+              margin: 0,
+              items: 1,
+              autoplay: true,
+              autoplayTimeout: 5000,
+              dots: true,
+              autoHeight: true,
+              smartSpeed: 800,
+              animateOut: 'fadeOut',
+              animateIn: 'fadeIn'
+            }"
+          >
+            <ng-container *ngFor="let image of images; let i = index">
+              <ng-template carouselSlide>
+                <div class="carousel-items" [class.active]="isActive(i)">
+                  <img [src]="image.newImg" class="carousel-image-2" />
+                </div>
+              </ng-template>
+            </ng-container>
+          </owl-carousel-o>
+        </ng-container>
+      </div>
+   
+      
+      
+      
+      
+      <!-- Transition Carousel Ends -->
+    </div>
+  </div>
+
+  <!-- Reports -->
+
+  <div class="reports_container">
+    <div class="heading-text">
+      <ng-container *ngFor="let arr of homeArr">
+        <ng-container *ngIf="arr.home_title_4">
+          <h3 class="animated-text">{{ arr.home_title_4 }}</h3>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div>
+      <div class="wrapper-img">
+        <ng-container *ngFor="let arr of homeArr">
+          <div class="cards-image" *ngIf="arr?.home_title_image?.url">
+            <div class="card">
+              <div class="card-image">
+                <img
+                  [src]="
+                    'https://ccitr.emeetify.com' + arr.home_title_image?.url
+                  "
+                  alt=""
+                />
+              </div>
+              <ng-container *ngIf="arr.home_subheader_6">
+                <h3 class="card-title">{{ arr.home_subheader_6 }}</h3>
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+
+  <div>
+    <div class="heading-text">
+      <ng-container *ngFor="let arr of homeArr">
+        <ng-container *ngIf="arr.home_title_5">
+          <h3 class="animated-text">{{ arr.home_title_5 }}</h3>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="cars-container">
+    <div class="carousel-container">
+      <div class="carousel-wrapper" [style.transform]="carouselTransform">
+        <div *ngFor="let arr of homeArr" class="carousel-item">
+          <ng-container *ngIf="arr.home_title_5_para">
+            <div class="card">
+              <p class="card_text">{{ arr.home_title_5_para }}</p>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <button class="prev-btn" (click)="prev()">
+      <svg
+        class="arrow"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+      >
+        <path
+          d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+        />
+      </svg>
+    </button>
+    <button class="next-btn" (click)="next()">
+      <svg
+        class="arrow"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+      >
+        <path
+          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+        />
+      </svg>
+    </button>
+  </div>
+  <div class="progress-bar-container">
+    <div class="progress-bar" [style.width.%]="progress"></div>
+  </div>
+
+  <!-- Public Awareness Material -->
+
+  <div class="row">
+    <div class="heading-text">
+      <ng-container *ngFor="let arr of homeArr">
+        <ng-container *ngIf="arr?.home_title_6">
+          <h3 class="animated-text">{{ arr?.home_title_6 }}</h3>
+        </ng-container>
+      </ng-container>
+    </div>
+      <!-- <h3>{{ arr?.home_subheader_9 }}</h3> -->
+
+
+    
+      <!-- Placeholder for images if needed -->
+      <!-- <img [src]="..." alt="..." *ngFor="let img of arr.images" /> -->
+
+      <!-- <h3>{{ arr?.home_subheader_10 }}</h3> -->
+    </div>
+
+    <!-- </div> -->
+  </div>
+<!-- <div>
+  <ng-container *ngFor="let arr of homeArr">
+    <ng-container *ngIf="arr?.home_title_6">
+      <h3>{{ arr?.home_subheader_9 }}</h3>
+    </ng-container>
   </ng-container>
-</owl-carousel-o>
+</div> -->
 
-<!-- 1st carousel End  -->
+<div>
+  <ng-container *ngFor="let arr of homeArr">
+    <ng-container *ngIf="arr?.home_title_6">
+      <h5 style="text-align: center;">{{ arr?.home_subheader_10 }}</h5>
+    </ng-container>
+  </ng-container>
+</div>
+  <div class="cars-container">
+    <ng-container *ngIf="images && images.length > 0">
+      <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let image of images">
+          <img
+            [src]="image?.src"
+            alt="{{ image?.text }}"
+            class="carousel-image"
+          />
+  <!-- <p class="carousel_title">{{ image?.text }}</p> -->
+
+        </ng-template>
+
+      </owl-carousel-o>
+
+
+    </ng-container>
+  </div>
+<!-- </div> -->
 
 
 
 
+<!-- Can use for main cars  -->
+<!-- <ng-container *ngIf="images?.length">
+  <owl-carousel-o
+    [options]="{
+      loop: true,
+      center: true,
+      margin: 15,
+      items: 1,
+      autoplay: true,
+      autoplayTimeout: 4000,
+      smartSpeed: 800,
+      autoHeight: true
+    }"
+  >
+    <ng-container *ngFor="let image of images; let i = index">
+      <ng-template carouselSlide>
+        <div class="carousel-items" [class.active]="isActive(i)">
+          <img [src]="image.newImg" class="carousel-image-2" />
+        </div>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</ng-container> -->
+
+<!-- 2nd 
+<ng-container *ngIf="images?.length">
+  <owl-carousel-o
+    [options]="{
+      loop: true,
+      center: true,
+      margin: 20,
+      items: 1,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      dots: true,
+      autoHeight: true,
+      smartSpeed: 800
+    }"
+  >
+    <ng-container *ngFor="let image of images; let i = index">
+      <ng-template carouselSlide>
+        <div class="carousel-items" [class.active]="isActive(i)">
+          <img [src]="image.newImg" class="carousel-image-2" />
+        </div>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</ng-container> -->
+<!-- .carousel-items {
+  position: relative;
+  transition: all 0.8s ease-in-out;
+}
 
 
+2nd css
+.carousel-items {
+  position: relative;
+  transition: all 0.8s ease-in-out;
+}
 
+.carousel-image-2 {
+  aspect-ratio: 4 / 2 !important;
+  max-width: 65%;
+  border-radius: 12px;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out, box-shadow 0.8s ease-in-out;
+}
+
+.carousel-items.active .carousel-image-2 {
+  transform: scale(1.1) translateY(0px); /* Gentle zoom */
+  opacity: 1;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Soft shadow */
+  z-index: 2;
+}
+
+.carousel-items:not(.active) .carousel-image-2 {
+  transform: scale(0.9) translateY(15px); /* Slight shrink & lower position */
+  opacity: 0.7; /* Dim effect */
+  box-shadow: none;
+  z-index: 1;
+}
+
+.carousel-items.active .carousel-image-2:hover {
+  transform: scale(1.15) translateY(-5px); /* Slight hover lift */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+  2nd css ends
+
+.carousel-image-2 {
+  aspect-ratio: 4 / 2 !important;
+  max-width: 65%;
+  border-radius: 12px;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out, box-shadow 0.8s ease-in-out;
+}
+
+.carousel-items.active .carousel-image-2 {
+  transform: scale(1.1) translateY(0px); /* Gentle zoom */
+  opacity: 1;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Soft shadow */
+  z-index: 2;
+}
+
+.carousel-items:not(.active) .carousel-image-2 {
+  transform: scale(0.9) translateY(15px); /* Slight shrink & lower position */
+  opacity: 0.7; /* Dim effect */
+  box-shadow: none;
+  z-index: 1;
+}
+
+.carousel-items.active .carousel-image-2:hover {
+  transform: scale(1.15) translateY(-5px); /* Slight hover lift */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+} -->

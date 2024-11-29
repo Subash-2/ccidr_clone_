@@ -1,5 +1,47 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
+
+.wrapper-container{
+    background-color: red;
+}
+.scroll-tab {
+  max-height: 100vh;
+  min-height: 100vh;
+//   background-color: red;
+
+  .inside-scroll{
+    background-color: green;
+    max-height: 15rem;
+    min-height: 15rem;
+   
+  }
+  .another-scroll{
+    height: 15rem;
+    width: 50%;
+    overflow-y: scroll;
+  }
+
+  /* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+

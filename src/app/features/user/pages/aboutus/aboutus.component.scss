@@ -1,7 +1,223 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: "Open Sans", sans-serif;
+$white: #fff;
+$blue: #244082;
+$red: #c93733;
+$black: #1b1918;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
+svg {
+  height: 1rem;
+  fill: $blue;
+}
+
+li {
+  list-style: none;
+}
+
+/**Main*/
+
+.title{
+  text-align: center;
+  margin: 1.7rem 0rem;
+}
+
+.wrapper_paras-container{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+
+  .wrapper_paras{
+    // background-color: green;
+    padding: 1rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  p:hover{
+    transform: scale(1.01);
+    cursor: pointer;
+  }
+  p{
+    margin-bottom: 2rem;
+    color: rgb(78, 77, 77);
+  }
+
+}
+
+.animated-text {
+  position: relative;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.animated-text::after {
+  content: '';
+  position: absolute;
+  width: 0px;
+  height: 3px;
+  background:linear-gradient(5deg,$blue,$red,$black) ;
+  right:0 ;
+  bottom: 0;
+  transition: width 0.4s ease-in-out;
+}
+
+.animated-text:hover::after {
+  width: 100%;
+}
+
+/*Main*/
+
+
+
+
+.animate-text {
+  position: relative;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+display: flex;justify-content: center;}
+
+.animate-text::after {
+  content: '';
+  position: absolute;
+  width: 0px;
+  height: 3px;
+  background:linear-gradient(5deg,$blue,$red,$black) ;
+  right: 0;
+  bottom: 0;
+  transition: width 0.4s ease-in-out;
+}
+
+.animate-text:hover::after {
+  width: 40%;
+}
+
+/* Objectives */
+
+.objective_title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-flex{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: $blue;
+  padding: 1rem;
+  font-weight: 550;
+  background-color: #DEE7FA;
+  p{
+    word-spacing: 1;
+    line-height: 2;
+    color: #333;
+  }
+}
+.objective-image {
+  width: 15rem;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  object-fit: cover; 
+  border-radius: 8px; 
+
+}
+
+/**Key container */
+.key_container{
+  display: flex;
+  // background-color: red;
+  justify-content: space-around;
+  padding: 1rem;
+
+  h5{
+
+  }
+
+  li{
+    line-height: 2;
+    word-spacing: 1;
+  }
+  li:hover{
+  transform: scale(1.005);
+  }
+
+}
+
+.heading-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.7rem 0rem;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .wrapper_paras_container {
+//   width: 80vw;
+//   height: 20vh;
+//   background-color: red;
+// }
+
+// .wrapper_paras {
+//   .para_container {
+//     padding: 1rem;
+//     width: 30vw;
+//     background-color: $white;
+//     border: 2px dashed $blue;
+//     border-radius: 0.6rem;
+//   }
+
+//   .para_container:hover {
+//     background-color: $blue;
+//     color: $white;
+//     border: 2px dashed $blue;
+//   }
+// }
+
+// .my-row {
+//   display: flex; /* Make this a flex container */
+//   flex-wrap: wrap; /* Allow items to wrap to the next row if needed */
+//   gap: 20px;
+//   background-color: $white;
+// }
+
+// .wrapper_paras-container {
+//   display: flex; /* Make this a flex container */
+//   flex-direction: row; /* Align items vertically (optional) */
+//   flex-wrap: wrap;
+//   min-height: 50vh;
+//   max-width: 50vw;
+//   max-width: 100%;
+// }
+
+// .wrapper_paras {
+//   flex: 1 1 30%;
+// }
+
+// @media (max-width: 768px) {
+//   .row {
+//     flex-direction: column; /* Stack items vertically on smaller screens */
+//   }
+// }

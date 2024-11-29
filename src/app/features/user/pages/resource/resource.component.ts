@@ -14,6 +14,8 @@ export class ResourceComponent implements OnInit{
   constructor(private httpService : HttpService){}
 
 
+
+
   resourceArr : any = []
 
 

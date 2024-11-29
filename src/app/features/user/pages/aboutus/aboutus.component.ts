@@ -13,24 +13,27 @@ export class AboutusComponent implements OnInit{
 
   constructor(private httpService : HttpService){}
   contentArr : any = []
+  bullet! : number
+  imagesArr! : any
 
   ngOnInit(): void {
 
     this.getData()
     
   }
+  
 
   getData(){
     
-    this.httpService.getMethod('aboutuses').then((res: any)=>
+    this.httpService.getMethod('about-uses').then((res: any)=>
       {
         this.contentArr = res
-        console.log(res);
-  
+         for (let myArr = 0;myArr > 0;myArr++){
+        }
+      })
+      this.httpService.getMethod('Whos').then((res:any)=>{
+        this.imagesArr = res
       })
   }
-
 }
 
-
-// https://ccitr.emeetify.com/aboutuses

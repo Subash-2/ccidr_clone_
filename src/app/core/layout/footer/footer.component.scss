@@ -1,15 +1,17 @@
+$white: #ffffff;
+$blue: #244082;
+$red: #c93733;
+$black: #1b1918;
 *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-$primary-color: #fff;
-$secondary-color: skyBlue;
+
 
 footer{
-    background-color:$secondary-color;
+    background-color:$blue;
     height: 40vh;
-    // width: 100vw;
     display: flex;
     justify-content: center;
     align-items: end;
@@ -23,6 +25,7 @@ svg {
     margin: 0.5rem;
     animation: rotate 10s infinite linear, pulse 3s infinite ease-in-out;
     transform-origin:center;
+    fill: $white;
 }
 
 @keyframes rotate {

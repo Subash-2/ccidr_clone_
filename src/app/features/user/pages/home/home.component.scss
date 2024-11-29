@@ -16,7 +16,6 @@ svg {
   box-shadow: 0 0 0 2px rgba(100, 150, 210, 0.25);
 }
 
-
 /**Transition Carousel*/
 
 .carousel-items {
@@ -33,14 +32,14 @@ svg {
 .carousel-image-2 {
   aspect-ratio: 4 / 2 !important;
 
-     max-width: 65%;
+  max-width: 65%;
 
- 
   // height: 6 / 3; /* Maintain aspect ratio */
   // max-width: 800px; /* Optional: Limit maximum width */
   // object-fit: cover; /* Ensures the image fills the space properly */
   border-radius: 12px;
-  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out, box-shadow 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out,
+    box-shadow 0.8s ease-in-out;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -60,7 +59,6 @@ svg {
   transform: scale(1.1);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
-
 
 .overlay-text {
   position: absolute;
@@ -122,8 +120,6 @@ svg {
     opacity: 1;
   }
 }
-
-
 
 /**Carosuel Main*/
 .carousel-container {
@@ -194,7 +190,6 @@ h2 {
 .owl-dot {
   width: 12px;
   height: 30px;
-  // background: #d3d3d3;
   background-color: $blue;
   color: $blue;
   border-radius: 10%;
@@ -230,7 +225,7 @@ h2 {
 }
 
 @media (max-width: 576px) {
-  .carousel-items{
+  .carousel-items {
     position: relative;
   }
   .carousel-container {
@@ -313,9 +308,8 @@ h2 {
 
 /**Reports*/
 .reports_container {
-  background-color: #CFD6E6;
+  background-color: #cfd6e6;
 
-  // padding: 1rem;
   .wrapper-img {
     display: flex;
     flex-wrap: wrap;
@@ -376,7 +370,6 @@ h2 {
 }
 
 .cards {
-  // background-color: red;
   display: flex;
   justify-content: space-between;
 }
@@ -391,8 +384,7 @@ h2 {
   align-items: center;
   font-family: "Newsreader", serif;
 
-
-  h3{
+  h3 {
     margin: 1.7rem 0rem;
   }
 }
@@ -407,13 +399,11 @@ h2 {
 }
 
 .testimonials_container {
-  // background-color: green;
   display: flex;
   flex-direction: row !important;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  // margin: 1rem;
   h3 {
     text-align: center;
   }
@@ -439,8 +429,7 @@ h2 {
   }
 }
 
-
-//Card cars 
+//Card cars
 .carousel-container {
   position: relative;
   width: 100%;
@@ -458,15 +447,15 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
- .card{
-  p{
-    color: gray;
+  .card {
+    p {
+      color: gray;
+    }
   }
-   }
 }
 
 .card {
-border: none;
+  border: none;
   background-color: #fff;
   display: flex;
   justify-content: center;
@@ -487,7 +476,7 @@ border: none;
   cursor: pointer;
   z-index: 10;
 }
-.cars-container{
+.cars-container {
   position: relative;
   padding: 0rem 3rem;
 }
@@ -499,7 +488,6 @@ border: none;
   justify-content: center;
   align-items: center;
   background-color: $blue;
-  
 }
 
 .next-btn {
@@ -509,7 +497,6 @@ border: none;
   justify-content: center;
   align-items: center;
   background-color: $blue;
-
 }
 
 .progress-bar-container {
@@ -523,64 +510,51 @@ border: none;
 
 .progress-bar {
   height: 100%;
-  background:linear-gradient(5deg,#F9C0BE,$blue,) ;
-  
+  background: linear-gradient(5deg, #f9c0be, $blue);
+
   transition: width 0.3s ease-in-out;
 }
-.arrow{
+.arrow {
   fill: $white;
 }
-.card_text{
+.card_text {
   max-width: 85%;
   font-weight: 600;
   font-size: 1.1rem;
 }
 
-
-
-
-
-/**Lab*/
-
 /**Lab Container*/
-.lab-container{
-  // max-height: 100vh;
-  // min-height: 100vh;
+.lab-container {
   background-color: $blue;
   color: $white;
   display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // margin: 1.7rem 0rem;
-
   flex-direction: column;
   padding: 3rem;
 }
-.lab-title-text{
+.lab-title-text {
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Newsreader", serif;
   color: $white !important;
 
-  h3{
+  h3 {
     margin: 1.7rem 0rem;
-  color: $white !important;
-
+    color: $white !important;
   }
 }
-.lab-image{
+.lab-image {
   height: auto;
   width: 7rem;
 }
-.lab-containers{
+.lab-containers {
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   height: auto;
 }
-.img-allign{
+.img-allign {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -589,96 +563,17 @@ border: none;
   padding: 2rem;
   border-radius: 9px;
 }
-.img-allign:hover{
+.img-allign:hover {
   background-color: $white;
   color: $blue;
   transform: scale(1.2);
   border: 1px dashed $blue;
-
-
 }
 
 /**Facilities */
-.heading-text{
+.heading-text {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 1.7rem 0rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-// //card
-
-// .card-containers {
-//   width: 20rem;
-//   background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); /* Royal gradient background */
-//   border-radius: 15px;
-//   // box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Elegant shadow */
-//   overflow: hidden;
-//   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation on hover */
-// }
-
-// .card-containers:hover {
-//   transform: scale(1.05); /* Subtle scaling effect */
-//   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
-// }
-
-// .card {
-//   padding: 1.5rem;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   gap: 1rem;
-// }
-
-// .card img {
-//   width: 50px;
-//   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3)); /* Enhance image look */
-//   animation: float 3s infinite ease-in-out; /* Floating animation */
-// }
-
-// .card button {
-//   border: none;
-//   width: 10rem;
-//   padding: 0.8rem 1.5rem;
-//   background: #4a69bd; /* Royal blue button */
-//   border-radius: 50px;
-//   color: white;
-//   font-weight: bold;
-//   font-size: 1rem;
-//   cursor: pointer;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   gap: 0.5rem;
-//   transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
-// }
-
-// .card button:hover {
-//   background: #1e3799; /* Darker blue on hover */
-//   transform: translateY(-5px); /* Lift effect */
-// }
-
-// .card button svg {
-//   width: 16px;
-//   height: 16px;
-//   fill: white;
-// }
-
-// @keyframes float {
-//   0%, 100% {
-//     transform: translateY(0);
-//   }
-//   50% {
-//     transform: translateY(-10px);
-//   }
-// }

@@ -10,7 +10,7 @@
 
 
 <div class="title-text">
-    <p class="carousel-text"><span class="span-text">{{ carouselData[currentIndex]?.span }}</span>{{ carouselData[currentIndex]?.text }}</p>
+    <p class="carousel-text"><span class="span-text">{{ carouselData[currentIndex].span }}</span>{{ carouselData[currentIndex].text }}</p>
 </div>
 
 <div class="carousel-container" *ngIf="carouselData.length > 0">
@@ -19,7 +19,7 @@
     <div class="carousel-images" [class.sliding]="isSliding">
       <div class="left-image-container">
         <img
-          [src]="carouselData[currentIndex]?.left"
+          [src]="carouselData[currentIndex].left"
           alt="Left Image"
           class="left"
         />
@@ -29,7 +29,7 @@
     <div class="right-image-container">
 
         <img
-          [src]="carouselData[currentIndex]?.right"
+          [src]="carouselData[currentIndex].right"
           alt="Right Image"
           class="right"
         />

@@ -26,7 +26,7 @@
           <div class="img-allign" *ngIf="arr.Infrastructure_image?.url">
             <img
               [src]="
-                'https://ccitr.emeetify.com' + arr.Infrastructure_image?.url
+                'https://ccitr.emeetify.com/strapi/' + arr.Infrastructure_image?.url
               "
               alt=""
               class="lab-image"
@@ -103,7 +103,7 @@
               <div class="card-image">
                 <img
                   [src]="
-                    'https://ccitr.emeetify.com' + arr.home_title_image?.url
+                    'https://ccitr.emeetify.com/strapi/' + arr.home_title_image?.url
                   "
                   alt=""
                 />

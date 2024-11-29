@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-research',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './research.component.html',
+  templateUrl:'./research.component.html',
   styleUrl: './research.component.scss'
 })
 export class ResearchComponent implements OnInit,OnDestroy{
@@ -69,8 +69,8 @@ export class ResearchComponent implements OnInit,OnDestroy{
       {
         this.contentArr = res
         this.carouselData = res.map((item: any) => ({
-          left: `https://ccitr.emeetify.com${item.research_left_image?.url}`,
-          right: `https://ccitr.emeetify.com${item.research_right_image?.url}`,
+          left: `https://ccitr.emeetify.com/strapi/${item.research_left_image?.url}`,
+          right: `https://ccitr.emeetify.com/strapi/${item.research_right_image?.url}`,
           text: item.research_bullet_1,
           span: item.research_highlighter,
 

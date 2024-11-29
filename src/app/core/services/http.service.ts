@@ -8,7 +8,7 @@ export class HttpService {
 
   constructor(private httpClient : HttpClient) { }
 
-  serverURL = "https://ccitr.emeetify.com/strapi/";
+  serverURL = "https://ccitr.emeetify.com/";
 
 
   getMethod(path: string) {

@@ -11,8 +11,6 @@
   </div>
   <app-cards></app-cards>
 
-
-
   <!-- Digital Forensic infrastructure Lab Start-->
   <div class="row">
     <div class="lab-container">
@@ -26,7 +24,7 @@
           <div class="img-allign" *ngIf="arr.Infrastructure_image?.url">
             <img
               [src]="
-                'https://ccitr.emeetify.com/strapi/' + arr.Infrastructure_image?.url
+                'https://ccitr.emeetify.com' + arr.Infrastructure_image?.url
               "
               alt=""
               class="lab-image"
@@ -76,11 +74,7 @@
           </owl-carousel-o>
         </ng-container>
       </div>
-   
-      
-      
-      
-      
+
       <!-- Transition Carousel Ends -->
     </div>
   </div>
@@ -103,7 +97,7 @@
               <div class="card-image">
                 <img
                   [src]="
-                    'https://ccitr.emeetify.com/strapi/' + arr.home_title_image?.url
+                    'https://ccitr.emeetify.com' + arr.home_title_image?.url
                   "
                   alt=""
                 />
@@ -178,18 +172,16 @@
         </ng-container>
       </ng-container>
     </div>
-      <!-- <h3>{{ arr?.home_subheader_9 }}</h3> -->
+    <!-- <h3>{{ arr?.home_subheader_9 }}</h3> -->
 
+    <!-- Placeholder for images if needed -->
+    <!-- <img [src]="..." alt="..." *ngFor="let img of arr.images" /> -->
 
-    
-      <!-- Placeholder for images if needed -->
-      <!-- <img [src]="..." alt="..." *ngFor="let img of arr.images" /> -->
-
-      <!-- <h3>{{ arr?.home_subheader_10 }}</h3> -->
-    </div>
-
-    <!-- </div> -->
+    <!-- <h3>{{ arr?.home_subheader_10 }}</h3> -->
   </div>
+
+  <!-- </div> -->
+</div>
 <!-- <div>
   <ng-container *ngFor="let arr of homeArr">
     <ng-container *ngIf="arr?.home_title_6">
@@ -198,35 +190,29 @@
   </ng-container>
 </div> -->
 
-<div>
+<div class="animy-container">
   <ng-container *ngFor="let arr of homeArr">
     <ng-container *ngIf="arr?.home_title_6">
-      <h5 style="text-align: center;">{{ arr?.home_subheader_10 }}</h5>
+      <h5 class="animy">{{ arr?.home_subheader_10 }}</h5>
     </ng-container>
   </ng-container>
 </div>
-  <div class="cars-container">
-    <ng-container *ngIf="images && images.length > 0">
-      <owl-carousel-o [options]="customOptions">
-        <ng-template carouselSlide *ngFor="let image of images">
-          <img
-            [src]="image?.src"
-            alt="{{ image?.text }}"
-            class="carousel-image"
-          />
-  <!-- <p class="carousel_title">{{ image?.text }}</p> -->
-
-        </ng-template>
-
-      </owl-carousel-o>
-
-
-    </ng-container>
-  </div>
+<div class="cars-container">
+  <ng-container *ngIf="images && images.length > 0">
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide *ngFor="let image of images">
+        <img
+          [src]="image?.src"
+          alt="{{ image?.text }}"
+          class="carousel-image"
+        />
+        <!-- <p class="carousel_title">{{ image?.text }}</p> -->
+      </ng-template>
+    </owl-carousel-o>
+  </ng-container>
+  
+</div>
 <!-- </div> -->
-
-
-
 
 <!-- Can use for main cars  -->
 <!-- <ng-container *ngIf="images?.length">
@@ -241,6 +227,74 @@
       smartSpeed: 800,
       autoHeight: true
     }"
+
+
+  h3 {
+    font-size: 3rem;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+  }
+
+  h3::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #ff6347;
+    animation: slideIn 1.5s ease forwards;
+  }
+
+  h3 span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: fadeUp 1s ease forwards;
+  }
+
+  h3 span:nth-child(1) {
+    animation-delay: 0.3s;
+  }
+  h3 span:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+  h3 span:nth-child(3) {
+    animation-delay: 0.7s;
+  }
+  h3 span:nth-child(4) {
+    animation-delay: 0.9s;
+  }
+  h3 span:nth-child(5) {
+    animation-delay: 1.1s;
+  }
+  h3 span:nth-child(6) {
+    animation-delay: 1.3s;
+  }
+  h3 span:nth-child(7) {
+    animation-delay: 1.5s;
+  }
+
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideIn {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
   >
     <ng-container *ngFor="let image of images; let i = index">
       <ng-template carouselSlide>

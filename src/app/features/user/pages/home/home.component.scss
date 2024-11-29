@@ -3,9 +3,9 @@ $blue: #244082;
 $red: #c93733;
 $black: #1b1918;
 * {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
 svg {
@@ -124,7 +124,7 @@ svg {
 /**Carosuel Main*/
 .carousel-container {
   max-width: 1200px;
-  margin: 50px auto;
+  margin: 1rem auto;
   text-align: center;
   padding: 20px 20px;
 }
@@ -166,12 +166,23 @@ h2 {
   display: flex;
   justify-content: space-between;
   transform: translateY(-50%);
+  background-color: $blue;
+}
+
+
+.owl-theme .owl-nav [class*=owl-]{
+  background-color: $blue !important;
+
+}
+.owl-next{
+  background-color: $blue;
 }
 
 .owl-nav button {
   background: rgba(0, 0, 0, 0.6);
   border: none;
   color: #fff;
+
   font-size: 1.2rem;
   padding: 10px 15px;
   border-radius: 50%;
@@ -242,6 +253,8 @@ h2 {
   }
 }
 
+
+
 //Cars
 
 .full-height {
@@ -281,6 +294,7 @@ h2 {
   }
 }
 
+
 //animated heading
 .animated-text {
   position: relative;
@@ -296,7 +310,7 @@ h2 {
   position: absolute;
   width: 0px;
   height: 3px;
-  background: linear-gradient(5deg, $blue, $red, $black);
+  background: linear-gradient(130deg, $blue, $red);
   left: 0;
   bottom: 0;
   transition: width 0.4s ease-in-out;
@@ -305,6 +319,7 @@ h2 {
 .animated-text:hover::after {
   width: 40%;
 }
+
 
 /**Reports*/
 .reports_container {
@@ -331,6 +346,9 @@ h2 {
     background: #ffffff;
     transition: transform 0.3s ease-in-out;
   }
+}
+
+
 
   //entire card size can change
 
@@ -344,7 +362,7 @@ h2 {
   .card-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    // object-fit: cover;
     transition: transform 0.3s ease-in-out;
   }
 
@@ -367,7 +385,6 @@ h2 {
     transform: translateY(0);
     opacity: 1;
   }
-}
 
 .cards {
   display: flex;
@@ -382,7 +399,6 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Newsreader", serif;
 
   h3 {
     margin: 1.7rem 0rem;
@@ -419,6 +435,7 @@ h2 {
     min-height: 100%;
     max-height: 100%;
     padding: 1rem;
+  font-family: "EB Garamond", serif;
   }
   p:hover {
     border: 0.5rem dashed $blue;
@@ -449,7 +466,7 @@ h2 {
   align-items: center;
   .card {
     p {
-      color: gray;
+      color: #494949;;
     }
   }
 }
@@ -467,7 +484,7 @@ h2 {
 .prev-btn,
 .next-btn {
   position: absolute;
-  top: 100%;
+  top: 50%;
   transform: translateY(-50%);
   background-color: #000;
   color: #fff;
@@ -479,6 +496,7 @@ h2 {
 .cars-container {
   position: relative;
   padding: 0rem 3rem;
+  margin: 0rem 2rem;
 }
 
 .prev-btn {
@@ -521,6 +539,7 @@ h2 {
   max-width: 85%;
   font-weight: 600;
   font-size: 1.1rem;
+  font-family: "EB Garamond", serif;
 }
 
 /**Lab Container*/
@@ -529,17 +548,17 @@ h2 {
   color: $white;
   display: flex;
   flex-direction: column;
-  padding: 3rem;
+  padding: 1rem 2rem 3rem 2rem;
 }
 .lab-title-text {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Newsreader", serif;
   color: $white !important;
+  
 
   h3 {
-    margin: 1.7rem 0rem;
+     margin: 1.7rem 0rem 1.7rem 0rem;
     color: $white !important;
   }
 }
@@ -567,7 +586,7 @@ h2 {
   background-color: $white;
   color: $blue;
   transform: scale(1.2);
-  border: 1px dashed $blue;
+  border: 1px dotted $blue;
 }
 
 /**Facilities */
@@ -575,5 +594,17 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1.7rem 0rem;
+  margin: 1.5rem 0rem;
+}
+
+
+.animy-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animy:hover{
+ transform: scale(1.2);
+ transition: 0.5s ease-out;
 }

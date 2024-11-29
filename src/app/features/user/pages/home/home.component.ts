@@ -56,7 +56,7 @@ this.setFullHeight();
       undefined, 
     ];
   
-    const baseUrl = 'https://ccitr.emeetify.com/strapi/';
+    const baseUrl = 'https://ccitr.emeetify.com';
   
     const backendImages = dynamicImages
       .filter((path) => path) // Remove null or undefined values
@@ -84,9 +84,9 @@ this.setFullHeight();
         this.images = res
           .filter((item:any) => item?.home_title_4_image?.url)
           .map((item:any) => ({
-            src: `https://ccitr.emeetify.com/strapi/${item.home_title_4_image.url}`, 
+            src: `https://ccitr.emeetify.com${item.home_title_4_image.url}`, 
             text: item.home_subheader_bullet_2 || 'Default Text', 
-            newImg : `https://ccitr.emeetify.com/strapi/${item.facilities_image.url}`
+            newImg : `https://ccitr.emeetify.com${item.facilities_image.url}`
           }));
           
       },
@@ -134,7 +134,7 @@ this.setFullHeight();
     loop: true,
     center: true, // Ensures the center image is in focus
     nav: true,
-    dots: true,
+    dots: false,
     autoplay: true,
     autoplayTimeout: 5000,
     autoplayHoverPause: true,

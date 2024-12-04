@@ -1,57 +1,57 @@
+<div class="aboutus-wrapper">
+  <h2 class="title animated-text">Resource</h2>
+</div>
+
 <div class="container-fluid">
-        <!-- Manual Edition  -->
-        <div class="wrapper-container">
-            <div *ngFor="let arr of resourceArr">
-                <h1>{{arr.resource_header_1}}</h1>
-                <p>{{arr.resource_para}}</p>
+  <div *ngFor="let item of carouselData; let carouselIndex = index">
+    <div class="wrapper">
+      <div class="title_wrapper">
+        <h4 class="title">{{ item.heading }}</h4>
+      </div>
+      <div class="para" [innerHTML]="item.text"></div>
+      <ng-container *ngIf="item.subheading || item.bullets">
+        <div class="subheader-wrapper">
+          <h4 class="subheader">{{ item.subheading }}</h4>
+          <div class="bullets" [innerHTML]="item.bullets"><img src="../../../../../assets/images/right-arrow.png" height="20" width="20"/></div>
+        </div>
+      </ng-container>
+
+      <!-- Only display carousel if images are present -->
+      <ng-container *ngIf="item.image && item.image.length > 0">
+        <div class="carousel">
+          <div class="image-container">
+            <div class="center">
+              <!-- Loop through images and only show non-null images -->
+              <ng-container *ngFor="let img of item.image; let i = index">
+                <ng-container *ngIf="img">
+                  <!-- Only show image if it's not null or empty -->
+                  <img
+                    [src]="img"
+                    [class.active]="i === carouselIndices[carouselIndex]"
+                    class="image"
+                    alt="Carousel Image"
+                  />
+                </ng-container>
+              </ng-container>
             </div>
-        </div>
-        <div class="wrapper" *ngFor="let arr of resourceArr">
-            <h1>{{arr.resource_header_2}}</h1>
-            <p>{{arr.resource_subheader_bullet_1}}</p>
-            <strong>{{arr.resource_subheader_title_1}}</strong>
-            <ng-container *ngIf="arr.resource_subheader_title_bullet_1">
+          </div>
 
-                <li>{{arr.resource_subheader_title_bullet_1}}</li>
-            </ng-container>
+          <button
+            *ngIf="item.image.length > 1"
+            (click)="prevImage(carouselIndex, item.image.length)"
+            class="nav-button prev"
+          >
+            &#10094;
+          </button>
+          <button
+            *ngIf="item.image.length > 1"
+            (click)="nextImage(carouselIndex, item.image.length)"
+            class="nav-button next"
+          >
+            &#10095;
+          </button>
         </div>
-        <div class="wrapper" *ngFor="let arr of resourceArr">
-            <h1>{{arr.resource_header_3}}</h1>
-            <p>{{arr.resource_subheader_bullet_3}}</p>  
-        </div>
-        <div class="wrapper" *ngFor="let arr of resourceArr">
-            <h1>{{arr.resource_header_4}}</h1>
-            <p>{{arr.resource_para_2}}</p>  
-            <strong>{{arr.resource_subheader_title_2}}</strong>
-            <ng-container *ngIf="arr.resource_subheader_title_bullet_2">
-
-                <li>{{arr.resource_subheader_title_bullet_2}}</li>
-            </ng-container>
-        </div>
-        <div class="wrapper" *ngFor="let arr of resourceArr">
-            <h1>{{arr.resource_header_5}}</h1>
-            <p>{{arr.resource_subheader_bullet_3}}</p>
- 
-            <strong>{{arr.resource_subheader_title_3}}</strong>
-            <ng-container *ngIf="arr.resource_subheader_title_bullet_3">
-
-                <li>{{arr.resource_subheader_title_bullet_3}}</li>
-            </ng-container>
-        </div>
-        <div class="wrapper" *ngFor="let arr of resourceArr">
-            <h1>{{arr.resource_header_6}}</h1>
-            <p>{{arr.resource_subheader_bullet_6}}</p>
- 
-        </div>
+      </ng-container>
     </div>
-<!-- 
-    <div class="scroll-tab">
-        <div class="inside-scroll">
-            <div class="another-scroll">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure sunt natus nesciunt earum sit adipisci illo nemo quam praesentium vitae.</p>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure sunt natus nesciunt earum sit adipisci illo nemo quam praesentium vitae.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure sunt natus nesciunt earum sit adipisci illo nemo quam praesentium vitae.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure sunt natus nesciunt earum sit adipisci illo nemo quam praesentium vitae.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure sunt natus nesciunt earum sit adipisci illo nemo quam praesentium vitae.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure sunt natus nesciunt earum sit adipisci illo nemo quam praesentium vitae.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure sunt natus nesciunt earum sit adipisci illo nemo quam praesentium vitae.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure sunt natus nesciunt earum sit adipisci illo nemo quam praesentium vitae.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure sunt natus nesciunt earum sit adipisci illo nemo quam praesentium vitae.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure sunt natus nesciunt earum sit adipisci illo nemo quam praesentium vitae.</p> <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure sunt natus nesciunt earum sit adipisci illo nemo quam praesentium vitae.</p>
-            </div>
-        </div>
-    </div> -->
-
-      
+  </div>
+</div>

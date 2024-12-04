@@ -14,22 +14,14 @@ export class ResearchComponent implements OnInit,OnDestroy{
   constructor(private httpService : HttpService){}
   contentArr : any = []
   isSliding = false;
-
-  carouselData: { left: string; right: string; text: string;span:string }[] = [];
-
-  // images = [
-  //   { left: '../../../../../assets/images/16-min.JPG', right: '../../../../../assets/images/10-min.png' },
-  //   { left: '../../../../../assets/images/17-min.jpg', right: '../../../../../assets/images/8-min.jpg' },
-  //   { left: '../../../../../assets/images/18-min.png', right: '../../../../../assets/images/9-min (1)_11zon.png' },
-  //   // { left: 'assets/image3-left.jpg', right: 'assets/image3-right.jpg' },
-  // ];
+  carouselData: { left: string; right: string; text: string;span:string }[] = [];;
   currentIndex = 0;
   autoScrollInterval!: any;
 
   ngOnInit(): void {
 
     this.getData()
-    this.startAutoScroll();
+    // this.startAutoScroll();
 
     
   }
@@ -37,26 +29,66 @@ export class ResearchComponent implements OnInit,OnDestroy{
     clearInterval(this.autoScrollInterval);
   }
 
-  startAutoScroll() {
-    this.autoScrollInterval = setInterval(() => {
-      this.next();
-    }, 100000); // Auto-scroll every 3 seconds
-  }
 
   next() {
-    this.triggerSlideAnimation();
-    setTimeout(() => {
-      this.currentIndex = (this.currentIndex + 1) % this.carouselData.length;
-      this.isSliding = false;
-    }, 500);
+    if (this.isSliding) return;
+  
+    this.isSliding = true;
+  
+    // Preload next images to avoid visual glitches
+    const nextIndex = (this.currentIndex + 1) % this.carouselData.length;
+    this.preloadImages(nextIndex).then(() => {
+      requestAnimationFrame(() => this.triggerSlideAnimation());
+      setTimeout(() => {
+        this.currentIndex = nextIndex;
+        this.isSliding = false;
+      }, 800);  // Match with animation duration
+    });
   }
-
+  
   prev() {
-    this.triggerSlideAnimation();
-    setTimeout(() => {
-      this.currentIndex = (this.currentIndex - 1 + this.carouselData.length) % this.carouselData.length;
-      this.isSliding = false;
-    }, 500);
+    if (this.isSliding) return;
+  
+    this.isSliding = true;
+  
+    // Preload previous images to avoid visual glitches
+    const prevIndex = (this.currentIndex - 1 + this.carouselData.length) % this.carouselData.length;
+    this.preloadImages(prevIndex).then(() => {
+      requestAnimationFrame(() => this.triggerSlideAnimation());
+      setTimeout(() => {
+        this.currentIndex = prevIndex;
+        this.isSliding = false;
+      }, 800);
+    });
+  }
+  
+  // Preload images to ensure they are ready before showing
+  preloadImages(index: number): Promise<void> {
+    const leftImage = new Image();
+    const rightImage = new Image();
+  
+    leftImage.src = this.carouselData[index].left;
+    rightImage.src = this.carouselData[index].right;
+  
+    return Promise.all([
+      this.imageLoadPromise(leftImage),
+      this.imageLoadPromise(rightImage),
+    ]).then(() => {});
+  }
+  
+  imageLoadPromise(img: HTMLImageElement): Promise<void> {
+    return new Promise((resolve) => {
+      img.onload = () => resolve();
+      img.onerror = () => resolve();  // Fallback in case of an error
+    });
+  }
+  
+  
+  startAutoScroll() {
+    clearInterval(this.autoScrollInterval); // Prevent multiple intervals
+    this.autoScrollInterval = setInterval(() => {
+      this.next();
+    }, 3000); // Reduced for testing (3 seconds)
   }
 
   triggerSlideAnimation() {
@@ -75,7 +107,9 @@ export class ResearchComponent implements OnInit,OnDestroy{
           span: item.research_highlighter,
 
         }));
-        this.startAutoScroll();
+        console.log('item',this.carouselData);
+
+        // this.startAutoScroll();
       });
     }
 

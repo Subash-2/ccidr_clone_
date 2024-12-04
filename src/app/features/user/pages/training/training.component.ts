@@ -49,11 +49,7 @@ export class TrainingComponent implements OnInit,AfterViewInit{
 
   getData(){
 
-    this.httpService.getMethod('beneficiaries').then((res: any)=>
-      {
-        this.beneficiaryArr = res
-  
-      })
+    
 
       
     this.httpService.getMethod('Judiciaries').then((res: any)=>

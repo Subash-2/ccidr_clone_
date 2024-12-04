@@ -11,6 +11,7 @@ import { TrainingComponent } from './features/user/pages/training/training.compo
 import { ResourceComponent } from './features/user/pages/resource/resource.component';
 import { ResearchComponent } from './features/user/pages/research/research.component';
 import { InternshipComponent } from './features/user/pages/internship/internship.component';
+import { BeneficiaryComponent } from './features/user/pages/beneficiary/beneficiary.component';
 
 export const routes: Routes = [
 
@@ -28,7 +29,8 @@ export const routes: Routes = [
           {path:'research',component:ResearchComponent},
           {path:'infrastructure',component:InfrastructureComponent},
           {path:'contact-us',component:ContactusComponent},
-          {path:'internship',component:InternshipComponent}
+          {path:'internship',component:InternshipComponent},
+          {path:'beneficiary',component:BeneficiaryComponent}
         ],
       },
     {path:'user',component:UserComponent},

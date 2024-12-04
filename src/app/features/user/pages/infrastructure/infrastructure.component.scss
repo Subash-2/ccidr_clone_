@@ -1,63 +1,67 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+$white: #ffffff;
+$blue: #244082;
+$red: #c93733;
+$black: #1b1918;
+$whiteshade : #f5f6fa;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
-.bubble-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    // width: 100vw;
-    height: 100vh;
-    margin-bottom: 20px;
-  }
-  
-  .animated-image { 
-    aspect-ratio: 4 / 2;  
-    opacity: 0;
-    transform: scale(0.5);
-    transition: transform 2s ease-in-out, opacity 2s ease-in-out;
-  }
-  
-  .animated-image.visible {
-    opacity: 1;
-    transform: scale(1);
-  }
+// .bubble-container {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
+//     // width: 100vw;
+//     height: 100vh;
+//     margin-bottom: 20px;
+//   }
 
-  //Text Animation 
-  h1 {
-    font-family: 'Courier New', Courier, monospace;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 0.1px solid;
-    width: fit-content;
-    animation: blink-caret 0.75s step-end infinite;
-  }
-  
-  @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: black; }
-  }
-  
+//   .animated-image {
+//     aspect-ratio: 4 / 2;
+//     opacity: 0;
+//     transform: scale(0.5);
+//     transition: transform 2s ease-in-out, opacity 2s ease-in-out;
+//   }
 
-  /**Responsive */
-  // html {
-  //   font-size: 80%;
-  // }
-  // body {
-  //   --body-bg: #eee;
-  //   margin: 0;
-  //   padding: 2rem 2rem 4rem;
-  //   background: var(--body-bg);
-  //   color: #212121;
-  //   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-  //     "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
-  //     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  //   font-size: 1rem;
-  //   line-height: 1.5;
-  //   font-weight: normal;
-  // }
+//   .animated-image.visible {
+//     opacity: 1;
+//     transform: scale(1);
+//   }
+
+//   //Text Animation
+//   h1 {
+//     font-family: 'Courier New', Courier, monospace;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     border-right: 0.1px solid;
+//     width: fit-content;
+//     animation: blink-caret 0.75s step-end infinite;
+//   }
+
+//   @keyframes blink-caret {
+//     from, to { border-color: transparent; }
+//     50% { border-color: black; }
+//   }
+
+/**Responsive */
+// html {
+//   font-size: 80%;
+// }
+// body {
+//   --body-bg: #eee;
+//   margin: 0;
+//   padding: 2rem 2rem 4rem;
+//   background: var(--body-bg);
+//   color: #212121;
+//   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+//     "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
+//     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+//   font-size: 1rem;
+//   line-height: 1.5;
+//   font-weight: normal;
+// }
 //   *,
 // ::before,
 // ::after {
@@ -74,7 +78,7 @@
 //   margin: 0;
 // }
 // @media screen and (min-width: 768px) {
-  
+
 //   html {
 //     font-size: 100%;
 //   }
@@ -89,4 +93,347 @@
 //     font-size: 150%;
 //   }
 // }
-  
+
+.container-fluid{
+}
+.structure-wrapper{
+  padding: 3rem;
+}
+
+
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-images {
+  display: flex;
+  position: relative;
+  transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Smooth cubic-bezier for smooth slide */
+}
+
+.carousel-images.sliding .left {
+  animation: slide-out-left 0.8s forwards ease-in-out; /* Smooth left-out animation */
+}
+
+.carousel-images.sliding .right {
+  animation: slide-out-right 0.8s forwards ease-in-out; /* Smooth right-out animation */
+}
+
+.carousel-image {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.separator-line {
+  width: 2px;
+  background-color: black;
+  height: 100%;
+}
+
+svg{
+  fill: $white;
+  height: 1rem;
+  width: 1rem;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: $blue;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1;
+  padding: 12px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.nav-btn:hover {
+  opacity: 1;
+}
+
+.prev {
+  left: 10px;
+}
+
+.arrows{
+  transform: rotate(90deg);
+}
+
+
+
+.next {
+  right: 10px;
+
+/* Arrow icon adjustments */
+.arrow{
+  transform: rotate(90deg);
+}
+
+}
+
+/* Slide-out Animations */
+@keyframes slide-out-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Slide-in Animations */
+/* Smooth Slide-out Animations */
+@keyframes slide-out-up {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out-down {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+/* Smooth Slide-in Animations */
+@keyframes slide-in-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Left Image - Slide Down */
+.carousel-images.sliding .left {
+  animation: slide-out-down 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+.left-image-container .left {
+  animation: slide-in-down 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+/* Right Image - Slide Up */
+.carousel-images.sliding .right {
+  animation: slide-out-up 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+.right-image-container .right {
+  animation: slide-in-up 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+/* Add transition for smooth image appearance */
+.left, .right {
+  transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 1s ease;
+}
+
+
+.right-image-container {
+  height: 18rem;
+  width: 28rem; 
+  position: relative;
+  border-radius: 9px;
+}
+
+.right {
+  position: absolute;
+  top: 0;
+  height: 18rem;
+  width: 28rem;
+  border-radius: 9px;
+  animation: fade-in 1s ease-out; /* Fade-in effect for right image */
+}
+
+.left-image-container {
+  height: 18rem;
+  width: 28rem;
+  position: relative;
+  border-radius: 9px;
+}
+
+.left {
+  position: absolute;
+  top: 0;
+  height: 18rem;
+  width: 28rem;
+  border-radius: 9px;
+  animation: fade-in 1s ease-out; /* Fade-in effect for left image */
+}
+
+.span-text {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.span-text:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* Fading effect for images */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.title-text{
+  display: flex;justify-content: end;align-items: end;
+}
+
+.title-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 100vh; /* Adjust as needed */
+  // background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
+  overflow: hidden;
+}
+
+.carousel-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #333;
+  position: relative;
+  animation: fadeInUp 1s ease-out, glitch 6s infinite;
+  margin: 1.5rem 0rem;
+}
+
+/* Fade-in and slide-up effect */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glitch effect */
+@keyframes glitch {
+  0% {
+    clip-path: inset(0% 0 0% 0);
+    transform: translate(0);
+  }
+  15% {
+    clip-path: inset(10% 0 90% 0);
+    transform: translate(-2px, -2px);
+  }
+  30% {
+    clip-path: inset(30% 0 70% 0);
+    transform: translate(2px, 2px);
+  }
+  45% {
+    clip-path: inset(50% 0 50% 0);
+    transform: translate(-2px, 2px);
+  }
+  60% {
+    clip-path: inset(70% 0 30% 0);
+    transform: translate(2px, -2px);
+  }
+  75% {
+    clip-path: inset(90% 0 10% 0);
+    transform: translate(-1px, 1px);
+  }
+  90% {
+    clip-path: inset(0% 0 0% 0);
+    transform: translate(0);
+  }
+  100% {
+    clip-path: inset(0% 0 0% 0);
+    transform: translate(0);
+  }
+}
+
+
+//animated heading
+.animated-text {
+  position: relative;
+
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.animated-text::after {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 3px;
+  background: linear-gradient(130deg, $blue, $red);
+  left: 0;
+  bottom: 0;
+  transition: width 0.4s ease-in-out;
+}
+
+.animated-text:hover::after {
+  width: 40%;
+}
+
+
+.title {
+  color: $black !important; /* Ensure the text stands out */
+  font-size: 4rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds contrast to text */
+}
+
+
+
+

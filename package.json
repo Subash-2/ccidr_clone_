@@ -22,8 +22,10 @@
     "bootstrap": "^5.3.3",
     "jquery": "^3.7.1",
     "ngx-owl-carousel-o": "^18.0.0",
+    "ngx-slick-carousel": "^17.0.0",
     "popper.js": "^1.16.1",
     "rxjs": "~7.8.0",
+    "slick-carousel": "^1.8.1",
     "swiper": "^10.0.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
@@ -34,6 +36,7 @@
     "@angular/compiler-cli": "^18.2.0",
     "@types/jasmine": "~5.1.0",
     "@types/jest": "^29.5.14",
+    "@types/jquery": "^3.5.32",
     "@types/swiper": "^5.4.3",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",

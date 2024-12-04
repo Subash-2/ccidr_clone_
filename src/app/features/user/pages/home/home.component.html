@@ -103,7 +103,7 @@
                 />
               </div>
               <ng-container *ngIf="arr.home_subheader_6">
-                <h3 class="card-title">{{ arr.home_subheader_6 }}</h3>
+                <h5 class="card-title">{{ arr.home_subheader_6 }}</h5>
               </ng-container>
             </div>
           </div>
@@ -128,7 +128,7 @@
       <div class="carousel-wrapper" [style.transform]="carouselTransform">
         <div *ngFor="let arr of homeArr" class="carousel-item">
           <ng-container *ngIf="arr.home_title_5_para">
-            <div class="card">
+            <div class="testimonial-card">
               <p class="card_text">{{ arr.home_title_5_para }}</p>
             </div>
           </ng-container>

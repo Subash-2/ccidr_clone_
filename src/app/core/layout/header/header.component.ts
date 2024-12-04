@@ -24,15 +24,13 @@ export class HeaderComponent {
   toggleDrawer(): void {
     this.isDrawerOpen = !this.isDrawerOpen;
     this.sidebarVisible = !this.sidebarVisible;
-
   }
+  
   toogleDrawerClose() : void {
     this.isDrawerOpen = this.isDrawerOpen
-
   }
 
    toggleSidebar() {
-    // document.getElementById("sidebar").classList.toggle("active");
   }
   
 

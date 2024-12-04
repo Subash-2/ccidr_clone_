@@ -1,62 +1,105 @@
 <div class="container-fluid">
   <header>
-    <img src="../../../../assets/images/logo full hd_00000.png" />
-    <ul class="cp list">
+    <div class="right-section">
+      <img src="../../../../assets/images/logo full hd_00000.png" />
+    </div>
+    <div class="left-section">
+      <ul class="cp list left-section">
+        <li class="animated-text" routerLink="/user/home">Home</li>
+        <li class="animated-text" routerLink="/user/about-us">About us</li>
+        <div
+          class="dropdown"
+          (mouseover)="isDropdownOpening = true"
+          (mouseleave)="isDropdownOpening = false"
+        >
+          <li class="animated-text" routerLink="/user/training">
+            Training<span
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                  d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                /></svg
+            ></span>
+          </li>
+          <div class="dropdown-content" [ngClass]="{ show: isDropdownOpening }">
+            <p routerLink="/user/internship">Internship</p>
+            <p routerLink="/user/beneficiary">Beneficiary</p>
+          </div>
+        </div>
+        <div
+          class="dropdown"
+          (mouseover)="isDropdownOpen = true"
+          (mouseleave)="isDropdownOpen = false"
+        >
+          <li class="animated-text" routerLink="/user/highlights">
+            Highlights<span
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                  d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                /></svg
+            ></span>
+          </li>
+          <div class="dropdown-content" [ngClass]="{ show: isDropdownOpen }">
+            <p routerLink="/user/blog">Blog</p>
+            <p routerLink="/user/events">Events</p>
+          </div>
+        </div>
+        <div
+          class="dropdown"
+          (mouseover)="isDropdownOpens = true"
+          (mouseleave)="isDropdownOpens = false"
+        >
+          <li class="animated-text" routerLink="/user/resource">
+            Resource<span
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                  d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
+                /></svg
+            ></span>
+          </li>
+          <div class="dropdown-content" [ngClass]="{ show: isDropdownOpens }">
+            <p routerLink="/user/infrastructure">Infrastructure</p>
+            <p routerLink="/user/research">Research</p>
+          </div>
+        </div>
+        <li class="animated-text" routerLink="/user/contact-us">Contact us</li>
+
+        <ul>
+          <li class="menu-bar" *ngIf="!isDrawerOpen" (click)="toggleDrawer()">
+            <!-- First Icon SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path
+                d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+              />
+            </svg>
+          </li>
+
+          <li class="menu-bar" *ngIf="isDrawerOpen" (click)="toggleDrawer()">
+            <!-- Second Icon SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+              <path
+                d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"
+              />
+            </svg>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Mobile responsive -->
+  <div *ngIf="isDrawerOpen" class="drawer-content">
+    <ul class="responsive_list cp">
       <li class="animated-text" routerLink="/user/home">Home</li>
       <li class="animated-text" routerLink="/user/about-us">About us</li>
-      <div
-        class="dropdown"
-        (mouseover)="isDropdownOpening = true"
-        (mouseleave)="isDropdownOpening = false"
-      >
-        <li class="animated-text" routerLink="/user/training">
-          Training<span
-            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-              <path
-                d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg></span>
-        </li>
-        <div class="dropdown-content" [ngClass]="{ show: isDropdownOpening }">
-          <p routerLink="/user/internship">Internship</p>
-        </div>
-      </div>
-      <div
-        class="dropdown"
-        (mouseover)="isDropdownOpen = true"
-        (mouseleave)="isDropdownOpen = false"
-      >
-        <li class="animated-text" routerLink="/user/highlights">
-          Highlights<span
-            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-              <path
-                d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
-              /></svg
-          ></span>
-        </li>
-        <div class="dropdown-content" [ngClass]="{ show: isDropdownOpen }">
-          <p routerLink="/user/blog">Blog</p>
-          <p routerLink="/user/events">Events</p>
-        </div>
-      </div>
-      <div
-        class="dropdown"
-        (mouseover)="isDropdownOpens = true"
-        (mouseleave)="isDropdownOpens = false"
-      >
-        <li class="animated-text" routerLink="/user/resource">
-          Resource<span
-            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-              <path
-                d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
-              /></svg
-          ></span>
-        </li>
-        <div class="dropdown-content" [ngClass]="{ show: isDropdownOpens }">
-          <p routerLink="/user/infrastructure">Infrastructure</p>
-          <p routerLink="/user/research">Research</p>
-        </div>
-      </div>
+      <li class="animated-text" routerLink="/user/training"></li>
+      <li routerLink="/user/internship">Internship</li>
+      <li class="animated-text" routerLink="/user/highlights">Highlights</li>
+      <li routerLink="/user/blog">Blog</li>
+      <li routerLink="/user/events">Events</li>
+      <li class="animated-text" routerLink="/user/resource">Resource</li>
+      <li routerLink="/user/infrastructure">Infrastructure</li>
+      <li routerLink="/user/research">Research</li>
       <li class="animated-text" routerLink="/user/contact-us">Contact us</li>
-
       <ul>
         <li class="menu-bar" *ngIf="!isDrawerOpen" (click)="toggleDrawer()">
           <!-- First Icon SVG -->
@@ -77,41 +120,5 @@
         </li>
       </ul>
     </ul>
-  </header>
-  <div *ngIf="isDrawerOpen" class="drawer-content">
-    <ul class="responsive_list cp">
-      <li class="animated-text" routerLink="/user/home">Home</li>
-      <li class="animated-text" routerLink="/user/about-us">About us</li>
-      <li class="animated-text" routerLink="/user/training"></li>
-      <li routerLink="/user/internship">Internship</li>
-      <li class="animated-text" routerLink="/user/highlights">Highlights</li>
-      <li routerLink="/user/blog">Blog</li>
-      <li routerLink="/user/events">Events</li>
-      <li class="animated-text" routerLink="/user/resource">Resource</li>
-      <li routerLink="/user/infrastructure">Infrastructure</li>
-      <li routerLink="/user/research">Research</li>
-      <li class="animated-text" routerLink="/user/contact-us">Contact us</li>
-
-      <ul>
-        <li class="menu-bar" *ngIf="!isDrawerOpen" (click)="toggleDrawer()">
-          <!-- First Icon SVG -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path
-              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
-          </svg>
-        </li>
-
-        <li class="menu-bar" *ngIf="isDrawerOpen" (click)="toggleDrawer()">
-          <!-- Second Icon SVG -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-            <path
-              d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/>
-          </svg>
-        </li>
-      </ul>
-    </ul>
   </div>
-
-
-
-
+</div>

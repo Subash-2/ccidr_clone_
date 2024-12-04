@@ -15,8 +15,8 @@ export class ContactusComponent implements OnInit{
   }
 
 
-  latitude: number = 10.99408227234685; // Example: Space Needle latitude
-  longitude: number = 76.97289250762095; // Example: Space Needle longitude
+  latitude: number = 12.9814812; // Example: Space Needle latitude
+  longitude: number = 77.585361; // Example: Space Needle longitude
   apiKey: string = 'AIzaSyBGzK5REYl1icyJd-Bgu4A6Af9vbH-y1FM'; // Replace with your actual API key
   mapUrl: SafeResourceUrl;
   

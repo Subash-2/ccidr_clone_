@@ -35,5 +35,20 @@ export class AboutusComponent implements OnInit{
         this.imagesArr = res
       })
   }
+  onMouseMove(event: MouseEvent): void {
+    const card = event.currentTarget as HTMLElement;
+    const rect = card.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+    const rotateX = (y - 0.5) * 20;
+    const rotateY = (x - 0.5) * 20;
+
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  }
+
+  onMouseLeave(): void {
+    const card = document.querySelector('.image-card') as HTMLElement;
+    card.style.transform = '';
+  }
 }
 

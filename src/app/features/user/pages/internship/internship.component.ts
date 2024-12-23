@@ -1,8 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpService } from '../../../../core/services/http.service';
 
+interface Bullet {
+  mainText: string;
+  subTexts: string[];
+}
 
 @Component({
   selector: 'app-internship',
@@ -11,113 +15,135 @@ import { HttpService } from '../../../../core/services/http.service';
   templateUrl: './internship.component.html',
   styleUrl: './internship.component.scss'
 })
-export class InternshipComponent implements OnInit,OnDestroy {
+
+
+
+
+export class InternshipComponent implements OnInit {
   fullText = 'Your Topic Title';
   textToShow = 'Your Topic Title';
-  private currentIndex = 0;
+  // private currentIndex = 0;
   private delay = 100; // Adjust for typing speed (ms)
+
+  @Input() internshipData : {
+    heading: string; 
+    subheading : string; 
+    image: string[];
+    bullets: Bullet[];
+    paragraph:string;
+    id: string;
+  }[] = []
+
+
+
+  @HostListener('click')
+  toggleAnimation(): void {
+    this.isActive = !this.isActive;
+  }
 
   constructor(private httpService : HttpService){}
 
   internshipArr : any = []
   newArr : any
 
+  currentIndex = 2;
+  
 
-  currentSlide = 0;
-  slides = [
-    { imageUrl: 'assets/images/slide1.jpg' },
-    { imageUrl: 'assets/images/slide2.jpg' },
-    { imageUrl: 'assets/images/slide3.jpg' },
-    { imageUrl: 'assets/images/slide4.jpg' }
-  ];
-  private slideInterval: any;
+  isActive = false;
+  activeIndustry: string = '';
+  activeTab: number = 0;
+
+
+  images: any[] = [];
 
 
 
 
 
   ngOnInit(): void {
-    this.initializeScrollObserver();
     this.getData();
-    this.startAutoSlide();
+    this.toggleAnimation();  
+  }
+
+  setActiveIndustry(id: string) {
+    console.log('Selected Industry ID:', id);
+    this.activeIndustry = id;
+  }
+
+
+  // getData(){
+
+  //   this.httpService.getMethod('internships').then((res:any)=> {
+  //     this.internshipArr = res
+  //     console.log(this.internshipArr)
+
+
+  //     this.internshipData = res.map((item: any) => ({
+  //       heading: item.internship_pills,
+  //       subheading: item.internship_subheader?.split('\n').map((line: string) => `<p>${line.trim()}</p>`).join(''),
+  //       paragraph: item.internship_para?.split('\n').map((line: string) => `<p>${line.trim()}</p>`).join(''),
+  //       image: item.internship_image.map(
+  //         (img: any) => `https://ccitr.emeetify.com${img.url}`
+  //       ),
+  //       bullets: item.internship_subheader_bullets?.split('\n').map((line: string) => `<p>${line.trim()}</p>`).join(''),
+  //     }));
+  //     // this.activeIndustry = this.internshipData[0]?.id ?? ''; 
+  //     this.updateImages(0);
+  //   })
+  //   }
+
+  getData() {
+    this.httpService.getMethod('internships').then((res: any) => {
+      this.internshipArr = res;
+      console.log(this.internshipArr);
   
+      this.internshipData = res.map((item: any) => {
+        const bullets: Bullet[] = item.internship_subheader_bullets
+          ?.split('\n\n\n')
+          .map((section: string) => {
+            const [mainText, ...subTexts] = section.split('\n');
+            return {
+              mainText: mainText.trim(),
+              subTexts: subTexts.map((text: string) => text.trim()),
+            };
+          }) || [];
+  
+        return {
+          heading: item.internship_pills,
+          paragraph: item.internship_para?.split('\n').map((line: string) => `<p>${line.trim()}</p>`).join(''),
+          image: item.internship_image.map(
+            (img: any) => `https://ccitr.emeetify.com${img.url}`
+          ),
+          bullets: bullets,
+        };
+      });
+  
+      this.updateImages(0);
+    });
   }
+  
 
-  initializeScrollObserver(): void {
-    const titleElement = document.getElementById('title');
-    if (titleElement) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              this.startTypingAnimation();
-              titleElement.classList.add('active');
-              observer.unobserve(titleElement); // Run animation once per scroll
-            }
-          });
-        },
-        { threshold: 0.5 } // Trigger when 50% of element is visible
-      );
-      observer.observe(titleElement);
+    updateImages(index: number) {
+      this.currentIndex = 0;
+      this.images = this.internshipData[index]?.image || [];
     }
-  }
-
-  startTypingAnimation(): void {
-    this.textToShow = ''; // Reset text
-    this.currentIndex = 0; // Start from beginning
-    this.typeNextCharacter();
-  }
-
-  private typeNextCharacter(): void {
-    if (this.currentIndex < this.fullText.length) {
-      this.textToShow += this.fullText[this.currentIndex];
-      this.currentIndex++;
-      setTimeout(() => this.typeNextCharacter(), this.delay);
-    }
-  }
-
-  getData(){
-
-    this.httpService.getMethod('internships').then((res:any)=> {
-      this.internshipArr = res
-      console.log(this.internshipArr)
-
-      for(var myArr of this.internshipArr){
-        this.newArr = myArr.internship_para
-        console.log('ParagraphArr>>>>>>>>',this.newArr);
-        
-      }
-    })
     
-  }
 
 
-
-
-
-
-
-  nextSlide() {
-    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-  }
-
-  prevSlide() {
-    this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
-  }
-
-  goToSlide(index: number) {
-    this.currentSlide = index;
-  }
-
-  private startAutoSlide() {
-    console.log('caros');
-    
-    this.slideInterval = setInterval(() => this.nextSlide(), 3000);
-  }
-
-  ngOnDestroy() {
-    if (this.slideInterval) {
-      clearInterval(this.slideInterval);
+    getLeftIndex(): number {
+      return (this.currentIndex - 1 + this.images.length) % this.images.length;
     }
-  }   
+  
+    getRightIndex(): number {
+      return (this.currentIndex + 1) % this.images.length;
+    }
+  
+    next(): void {
+      this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    }
+  
+    prev(): void {
+      this.currentIndex =
+        (this.currentIndex - 1 + this.images.length) % this.images.length;
+    }
 }

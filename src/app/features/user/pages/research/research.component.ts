@@ -14,7 +14,7 @@ export class ResearchComponent implements OnInit,OnDestroy{
   constructor(private httpService : HttpService){}
   contentArr : any = []
   isSliding = false;
-  carouselData: { left: string; right: string; text: string;span:string }[] = [];;
+  carouselData: { left: string; right: string; text: string;span:string;title : string }[] = [];
   currentIndex = 0;
   autoScrollInterval!: any;
 
@@ -105,6 +105,7 @@ export class ResearchComponent implements OnInit,OnDestroy{
           right: `https://ccitr.emeetify.com${item.research_right_image?.url}`,
           text: item.research_bullet_1,
           span: item.research_highlighter,
+          title:item.research_book_name
 
         }));
         console.log('item',this.carouselData);
@@ -113,6 +114,8 @@ export class ResearchComponent implements OnInit,OnDestroy{
       });
     }
 
+
+    
 
 
     

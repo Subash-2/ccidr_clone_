@@ -1,0 +1,122 @@
+$white: #fff;
+$blue: #244082;
+$red: #c93733;
+$black: #1b1918;
+$whiteshade: #fafafa;
+//Card cars
+
+.heading-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0rem;
+}
+.animated-text {
+  position: relative;
+
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.animated-text::after {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 3px;
+  background: linear-gradient(130deg, $blue, $red);
+  left: 0;
+  bottom: 0;
+  transition: width 0.4s ease-in-out;
+}
+
+.animated-text:hover::after {
+  width: 40%;
+}
+$white: #fff;
+$blue: #244082;
+$red: #c93733;
+$black: #1b1918;
+$whiteshade: #fafafa;
+//Card car
+
+.custom-carousel {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.wrapper{
+  background: url(../../../../../assets/main/Rectangle\ 3463832.png);
+  position: relative;
+}
+
+.carousel-image-wrapper {
+  position: relative;
+}
+
+.carousel-image {
+  width: 100%;
+  aspect-ratio: 4 / 2;
+  border-radius: 10px;
+  animation: fade-in-out 1s ease-in-out;
+}
+
+.watermark {
+  position: absolute;
+  top: -80px;
+  left: -60px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 120px;
+  font-weight: 700;
+  line-height: 163.68px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #C9870261; 
+}
+
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  // padding: 10px 10px;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev-btn {
+  left: 5rem;
+
+}
+
+.next-btn {
+  right: 5rem;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background-color: $blue;
+  color: $white;
+}
+
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -2,8 +2,7 @@ $white: #ffffff;
 $blue: #244082;
 $red: #c93733;
 $black: #1b1918;
-$whiteshade : #f5f6fa;
-
+$whiteshade: #f5f6fa;
 
 .right-image-container {
   margin-bottom: 2rem;
@@ -17,10 +16,18 @@ $whiteshade : #f5f6fa;
   margin-top: 1rem;
 }
 
-
-
 /******************/
 
+.mask-image {
+  position: absolute;
+  top: 0px;
+  left: -3px;
+}
+
+.title-book {
+  color: $blue;
+  margin-top: 2.5rem;
+}
 
 .carousel-container {
   display: flex;
@@ -31,8 +38,7 @@ $whiteshade : #f5f6fa;
   max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
-  margin-bottom:2rem;
-  background: $whiteshade;
+  margin-bottom: 2rem;
   border-radius: 9px;
 }
 
@@ -140,6 +146,7 @@ $whiteshade : #f5f6fa;
   width: 15rem;
   position: relative;
   border-radius: 9px;
+
 }
 
 .right {
@@ -149,6 +156,8 @@ $whiteshade : #f5f6fa;
   width: 15rem;
   border-radius: 9px;
   animation: fade-in 1s ease-out; /* Fade-in effect for right image */
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
 }
 
 .left-image-container {
@@ -156,6 +165,7 @@ $whiteshade : #f5f6fa;
   width: 30rem;
   position: relative;
   border-radius: 9px;
+
 }
 
 .left {
@@ -165,11 +175,13 @@ $whiteshade : #f5f6fa;
   width: 30rem;
   border-radius: 9px;
   animation: fade-in 1s ease-out; /* Fade-in effect for left image */
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
 }
 
 .span-text {
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .span-text:hover {
@@ -186,7 +198,24 @@ $whiteshade : #f5f6fa;
     opacity: 1;
   }
 }
+.title-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin-left: 8rem;
 
+  p {
+    text-align: justify;
+    width: 70%;
+  }
+}
+.title-align-bold {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  margin-bottom: 2rem;
+}
 
 //animated heading
 .animated-text {
@@ -233,7 +262,6 @@ svg {
     display: flex;
     flex-direction: column;
     padding: 2rem;
-
   }
   .left-image-container {
     height: 15rem;
@@ -241,6 +269,8 @@ svg {
     position: relative;
     border-radius: 9px;
     border-radius: 9px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
   }
 
   .left-image-container .left {
@@ -251,6 +281,8 @@ svg {
     margin-left: 6rem;
     height: 20rem;
     width: 18rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
   }
 }
 .title-text {
@@ -268,15 +300,19 @@ svg {
   display: flex;
   justify-content: center;
   align-items: center;
-  // height: 100vh; /* Adjust as needed */
-  // background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
+  box-shadow: 4px 4px 20px 0px #00000026;
   overflow: hidden;
+  position: relative;
+  width: 90%;
+  margin: auto;
+  margin-top: 3rem;
+  border-radius: 9px;
 }
 .simple-text {
   // font-size: 2rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-left: 1rem;
   font-weight: 600;
+  padding-bottom: 1rem;
   color: #333;
   text-align: center;
   animation: fadeInScale 1.5s ease-out forwards;
@@ -313,7 +349,7 @@ svg {
   }
 }
 .title {
-  color: $black !important; /* Ensure the text stands out */
+  color: $white !important; /* Ensure the text stands out */
   font-size: 4rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds contrast to text */
 }
@@ -404,3 +440,12 @@ svg {
     transform: scale(1);
   }
 }
+
+.ellipse-shape{
+  // background: url(../../);
+  position: absolute;
+  top: 30%;
+  right: 0%;
+}
+
+

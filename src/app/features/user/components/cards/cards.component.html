@@ -1,26 +1,23 @@
-<div id="carouselExampleIndicators" class="carousel slide">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+<div
+      class="slider-container"
+      *ngIf="images.length > 0"
+      
+    >
+      <div
+        class="slider"
+        [style.transform]="'translateX(-' + currentTranslate + 'px)'"
+        [style.transition]="transition"
+      >
+        <div *ngFor="let image of visibleImages" class="card">
+          <div (mouseenter)="pauseScroll()"
+          (mouseleave)="resumeScroll()" class="card-img">
+            <img [src]="image.src" alt="Logo" />
+            <h6>{{ image.text }}</h6>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="../../../../../assets/images/1-min.JPG" class=" w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="../../../../../assets/images/2-min.JPG" class=" w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="../../../../../assets/images/3-min.JPG" class=" w-100" alt="...">
-      </div>
+    <div *ngIf="images.length === 0" class="loading">
+      Loading images...
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+      

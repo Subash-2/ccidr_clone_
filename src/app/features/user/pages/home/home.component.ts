@@ -6,6 +6,7 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { FormsModule } from '@angular/forms';
 import { SplitCharsPipe } from '../../../../shared/pipes/global.pipe';
 import { CardsComponent } from '../../components/cards/cards.component';
+import { TestimonialsComponent } from "../../components/testimonials/testimonials.component";
 
 
 
@@ -13,7 +14,7 @@ import { CardsComponent } from '../../components/cards/cards.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,CarouselModule,FormsModule,CardsComponent],
+  imports: [CommonModule, CarouselModule, FormsModule, CardsComponent, TestimonialsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -25,12 +26,21 @@ export class HomeComponent implements OnInit{
 
   constructor(private el: ElementRef, private renderer: Renderer2,private httpService : HttpService) {}
   homeArr : any = []
-  images: { src: string; text: string,newImg : string }[] = [];
   activeIndex = 0;
   dynamicImages! : any;
   @Input() homeArray: { home_title_5_para?: string }[] = [];
   currentIndex = 0;
   progress = 0;
+  carouselData: { facilities: string; reports: string; posters: string;events:string }[] = [];
+  isSliding = false;
+
+  activeWrapper: 'posters' | 'events' = 'posters';
+
+  activateWrapper(wrapper: 'posters' | 'events') {
+    this.activeWrapper = wrapper;
+  }
+
+
 
   @HostListener('window:resize')
   onResize() {
@@ -39,78 +49,107 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {
 
 this.getData();
-this.fetchImagesFromBackend();
-this.startAutoSlide();
+// this.fetchImagesFromBackend();
+// this.startAutoSlide();
 this.setFullHeight();
 
-    setInterval(() => {
-      this.activeIndex = (this.activeIndex + 1) % this.images.length;
-    }, 3000); 
+    // setInterval(() => {
+    //   this.activeIndex = (this.activeIndex + 1) % this.images.length;
+    // }, 3000); 
   }
 
-  fetchImagesFromBackend(): void {
-    // Simulated dynamic image data from backend
-    const dynamicImages = [
-      this.dynamicImages,
-      null, 
-      undefined, 
-    ];
+  // fetchImagesFromBackend(): void {
+  //   // Simulated dynamic image data from backend
+  //   const dynamicImages = [
+  //     this.dynamicImages,
+  //     null, 
+  //     undefined, 
+  //   ];
   
-    const baseUrl = 'https://ccitr.emeetify.com';
+  //   const baseUrl = 'https://ccitr.emeetify.com';
   
-    const backendImages = dynamicImages
-      .filter((path) => path) // Remove null or undefined values
-      .map((path) => ({
-        src: `${baseUrl}${path}`, // Construct full URL
-        text: 'Default Text',
-        newImg : `${baseUrl}${path}` // Placeholder text for now
-      }));
-    this.images = backendImages;
+  //   const backendImages = dynamicImages
+  //     .filter((path) => path) // Remove null or undefined values
+  //     .map((path) => ({
+  //       src: `${baseUrl}${path}`, // Construct full URL
+  //       text: 'Default Text',
+  //       newImg : `${baseUrl}${path}`,
+  //       eventsImg : `${baseUrl}${path}` // Placeholder text for now
+  //     }));
+  //   this.images = backendImages;
   
-    // Log the resulting images array
-    console.log('Processed images:', this.images);
-  }
+  //   // Log the resulting images array
+  //   console.log('Processed images:', this.images);
+  // }
   
+
+  // getData(): void {
+  //   this.httpService.getMethod('Homes').then(
+  //     (res: any) => {
+  //       this.homeArr = res;
+  //       this.carouselData = res.map((item: any) => ({
+  //         facilities: `https://ccitr.emeetify.com${item.facilities_image?.url}`,
+  //         reports: `https://ccitr.emeetify.com${item.home_title_image?.url}`,
+  //         posters: `https://ccitr.emeetify.com${item.home_title_4_image?.url}`,
+  //         events: `https://ccitr.emeetify.com${item.events_image?.url}`,
+  //       }));
+        
+  //       console.log('carouselData', this.carouselData);
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   );
+  // }
+
+
+  
+
 
   getData(): void {
     this.httpService.getMethod('Homes').then(
-      (res:any) => {
-        // Process the response
-        // Facilities_image
-  this.homeArray = res
-
-        this.homeArr = res
-
-        this.images = res
-          .filter((item:any) => item?.home_title_4_image?.url)
-          .map((item:any) => ({
-            src: `https://ccitr.emeetify.com${item.home_title_4_image.url}`, 
-            text: item.home_subheader_bullet_2 || 'Default Text', 
-            newImg : `https://ccitr.emeetify.com${item.facilities_image.url}`
-          }));
-          
+      (res: any) => {
+        this.homeArr = res;
+        this.carouselData = res
+          .map((item: any) => ({
+            facilities: `https://ccitr.emeetify.com${item.facilities_image?.url}`,
+            reports: `https://ccitr.emeetify.com${item.home_title_image?.url}`,
+            posters: item.home_title_4_image?.url
+            ? `https://ccitr.emeetify.com${item.home_title_4_image.url}`
+            : null,
+          events: item.events_image?.url
+            ? `https://ccitr.emeetify.com${item.events_image.url}`
+            : null,
+        }))
+          .filter((item: any) => item.posters || item.events);
       },
       (error) => {
         console.error('Error fetching data:', error);
       }
-
-      
     );
-
-    //Facilities
-    
-
-    
-    
   }
   
+
+  setActiveSlide(index: number): void {
+    this.currentIndex = index;
+  }
+
+  prevImg(): void {
+    this.currentIndex =
+      (this.currentIndex - 1 + this.carouselData.length) %
+      this.carouselData.length;
+  }
+
+  nextImg(): void {
+    this.currentIndex = (this.currentIndex + 1) % this.carouselData.length;
+  }
   isDropdownOpen = false;
 
-  startAutoSlide(): void {
-    setInterval(() => {
-      this.activeIndex = (this.activeIndex + 1) % this.images.length;
-    }, 3000);
-  }
+  // startAutoSlide(): void {
+  //   setInterval(() => {
+  //     this.activeIndex = (this.activeIndex + 1) % this.images.length;
+  //   }, 3000);
+  // }
 
   isActive(index: number): boolean {
     return this.activeIndex === index;
@@ -201,6 +240,10 @@ this.setFullHeight();
       (this.currentIndex - 1 + this.homeArr.length) % this.homeArr.length;
     this.updateProgress();
   }
+
+
+ 
+
 
 
 }

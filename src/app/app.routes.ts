@@ -12,6 +12,7 @@ import { ResourceComponent } from './features/user/pages/resource/resource.compo
 import { ResearchComponent } from './features/user/pages/research/research.component';
 import { InternshipComponent } from './features/user/pages/internship/internship.component';
 import { BeneficiaryComponent } from './features/user/pages/beneficiary/beneficiary.component';
+import { TestimonialsComponent } from './features/user/components/testimonials/testimonials.component';
 
 export const routes: Routes = [
 
@@ -30,7 +31,8 @@ export const routes: Routes = [
           {path:'infrastructure',component:InfrastructureComponent},
           {path:'contact-us',component:ContactusComponent},
           {path:'internship',component:InternshipComponent},
-          {path:'beneficiary',component:BeneficiaryComponent}
+          {path:'beneficiary',component:BeneficiaryComponent},
+          {path:'test',component:TestimonialsComponent}
         ],
       },
     {path:'user',component:UserComponent},

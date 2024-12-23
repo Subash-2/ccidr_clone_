@@ -1,149 +1,220 @@
 <div class="training-wrapper">
-  <h2 class="animated-text title">Training</h2>
-</div>
-<div class="container-fluid">
-  <div class="row">
-    <div class="wrapper" *ngFor="let arr of contentArr">
-      <!-- Check if training_title or training_bullet is not null -->
-      <h5>{{ arr.training_title }}</h5>
-      <ul>
-        <ng-container *ngIf="arr.training_bullet">
-          <li>{{ arr.training_bullet }}</li>
-        </ng-container>
-      </ul>
-    </div>
-
-    <div class="wrapper" *ngFor="let arr of contentArr">
-      <h5>{{ arr.training_content_2 }}</h5>
-      <ul>
-        <ng-container *ngIf="arr.training_bullet_2">
-          <li>{{ arr.training_bullet_2 }}</li>
-        </ng-container>
-      </ul>
-    </div>
-    <div class="wrapper" *ngFor="let arr of contentArr">
-      <h5>{{ arr.training_title_3 }}</h5>
-      <ul>
-        <ng-container *ngIf="arr.training_bullet_3">
-          <li>{{ arr.training_bullet_3 }}</li>
-        </ng-container>
-      </ul>
-    </div>
-
-    <div class="wrapper" *ngFor="let arr of contentArr">
-      <h5>{{ arr.training_title_4 }}</h5>
-      <ng-container *ngIf="arr.training_para_1">
-        <p>{{ arr.training_para_1 }}</p>
-      </ng-container>
-    </div>
-
-    <div class="wrapper" *ngFor="let arr of contentArr">
-      <h5>{{ arr.training_title_5 }}</h5>
-      <ng-container *ngIf="arr.training_bullet_4">
-        <p>{{ arr.training_bullet_4 }}</p>
-      </ng-container>
-    </div>
-  </div>
+  <h2 class="title">Training</h2>
 </div>
 
 
-<!-- Beneficiary topic start  -->
-
+<!-- Hero session Start -->
 <div class="container-fluid">
-    
-
-<!-- Beneficiary topic end  -->
-
-
-    <!-- Judiciary topic Start-->
-
-    <div class="wrapper" *ngFor="let judArr of judiciaryArr">
-        <h1>{{judArr.judiciary_title}}</h1>
-        <p>{{judArr.judiciary_para}}</p>
-        <!-- <img/> -->
+  <div class="main-container">
+    <div class="animated-text">
+      <h5 class="global-title">Forensic Investigation Support</h5>
     </div>
-
-    <div class="wrapper" *ngFor="let judArr of judiciaryArr">
-        <h3>{{judArr.judiciary_header}}</h3>
-        <ng-container *ngIf="judArr.judiciary_bullet">
-            <p>{{judArr.judiciary_bullet}}</p>
+    <div class="main" *ngFor="let arr of contentArr">
+      <div class="text">
+        <ng-container *ngIf="arr.training_para">
+          <p>{{ arr.training_para }}</p>
         </ng-container>
-    </div>
-    <div class="wrapper" *ngFor="let judArr of judiciaryArr">
-        <h3>{{judArr.judiciary_header_2}}</h3>
-        <ng-container *ngIf="judArr.judiciary_bullet_2">
-        <p>{{judArr.judiciary_bullet_2}}</p>
-    </ng-container>
-        <!-- <img/> -->
+      </div>
+      <div>
+        <ng-container *ngIf="arr.training_images">
+          <div class="polygon">
+            <img src="../../../../../assets/main/Polygon 1.png" alt="Polygon" />
 
-    </div>
+            <div class="ellipse">
+              <img
+                src="../../../../../assets/main/Ellipse 8.png"
+                alt="Ellipse"
+              />
 
-    <div class="wrapper" *ngFor="let judArr of judiciaryArr">
-   <p>{{judArr.judiciary_subheader}}</p>
-        <!-- <img/> -->
-   
-    </div>
+              <!-- Rotating Ball -->
+              <div class="ellipse-ball"></div>
 
-
-    <!-- Judiciary topic end-->
-
-
-    <!-- Capacity building Start -->
-
-    <div class="wrapper" *ngFor="let buildArr of buildingArr">
-
-        <h1>{{buildArr.Capacity_building_title}}</h1>
-        <p>{{buildArr.Capacity_building_para}}</p>
-
-        
-        <!-- <img/> -->
-        
-    </div>
-
-        
-    <div class="wrapper" *ngFor="let buildArr of buildingArr">
-        <h3>{{buildArr.Capacity_building_subheader}}</h3>
-        <!-- <img/> -->
-    </div>
-
-            
-    <div class="wrapper" *ngFor="let buildArr of buildingArr">
-        <h1>{{buildArr.virtual_title}}</h1>
-        <ng-container *ngIf="buildArr.virtual_para">
-            <p>{{buildArr.virtual_para}}</p>
+              <div class="main-image">
+                <img
+                  [src]="'https://ccitr.emeetify.com' + arr.training_images.url"
+                  alt="Objective Image"
+                  class="main-image"
+                />
+              </div>
+            </div>
+          </div>
         </ng-container>
-
-        
-        <!-- <img/> -->
-    </div>
-
-    <!-- Capacity building end -->
-
-
-
-    
-<!-- 2nd carousel start -->
-<div class="rc-carousel" data-rc-carousel>
-    <div class="rc-carousel-strip">
-      <div class="rc-carousel-box" data-rc-carousel-box>
-    
-        <div *ngFor="let image of images; let i = index" class="rc-carousel-item" [attr.data-rc-carousel-item]="i + 1">
-          <img class="rc-carousel-item-image" [src]="image.src" [alt]="image.alt" />
-        </div>
-     
-        <div *ngFor="let image of images; let i = index" class="rc-carousel-item cloned" [attr.data-rc-carousel-item]="i + images.length + 1">
-          <img class="rc-carousel-item-image" [src]="image.src" [alt]="image.alt" />
-        </div>
       </div>
     </div>
   </div>
 
-  
-  <!-- 2nd carousel End -->
+  <!-- Capacity Building Pie chart Start -->
 
 
+<div class="capacity">
+  <div class="animated-text">
+    <h5 class="global-title">Capacity Building</h5>
+  </div>
 
+  <div class="main-paragraph">
+    <ng-container *ngFor="let arr of carouselData">
+      <div [innerHTML]="arr.paragraph"></div>
+    </ng-container>
+  </div>
+
+  <!-- <div *ngFor="let arr of contentArr">
+    <h6>{{arr.training_main}}</h6>
+  </div> -->
+
+  <div class="year-tabs">
+    <button
+      *ngFor="let group of groupedData"
+      [class.active]="group.year === selectedYear"
+      (click)="onYearTabClick(group.year)"
+    >
+      {{ group.year }}
+    </button>
+  </div>
+
+  <div class="my-flex">
+    <div echarts [options]="chartOptions" class="chart"></div>
+
+    <div class="pie-chart-notes-container">
+      <div class="pie-bottom-img-container">
+        <img
+          src="../../../../../assets/main/vectorbottom.png"
+          class="pie-bottom-img"
+        />
+      </div>
+      <div class="pie-top-img-container">
+        <img
+          src="../../../../../assets/main/vectortop.png"
+          class="pie-top-img"
+        />
+      </div>
+      <ng-container *ngFor="let arr of carouselData">
+        <h5 class="subtitle">{{ arr.heading }}</h5>
+        <div class="bullets">
+          <div [innerHTML]="arr.bullets"></div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
 </div>
 
+  <!-- Capacity Building tab Start -->
 
 
+<div class="curriculam-container">
+  <div class="tabs">
+    <button
+      class="tab-btn"
+      *ngFor="let tab of curriculamData; let i = index"
+      [class.active]="i === activeTab"
+      (click)="setActiveTab(i)"
+    >
+      {{ tab.heading }}
+    </button>
+  </div>
+
+  <div class="tab-content" *ngIf="curriculamData[activeTab] as activeData">
+    <h5 *ngIf="activeData.heading">{{ activeData.heading }}</h5>
+    <h6 *ngIf="activeData.subheading">{{ activeData.subheading }}</h6>
+    <div *ngIf="activeData.bullets" [innerHTML]="activeData.bullets"></div>
+    <div *ngIf="activeData.paragraph" [innerHTML]="activeData.paragraph"></div>
+    <div *ngIf="activeData.image?.length">
+      <img
+        *ngFor="let img of activeData.image"
+        [src]="img"
+        width="300"
+        alt="Curriculum Image"
+      />
+    </div>
+    <p
+      *ngIf="!activeData.bullets && !activeData.paragraph && !activeData.image"
+    >
+      No data available for this section.
+    </p>
+  </div>
+</div>
+
+<!-- Beneficiary Start  -->
+<app-beneficiary></app-beneficiary>
+
+  <!-- Judiciary topic Start-->
+
+  <!-- <div class="wrapper" *ngFor="let judArr of judiciaryArr">
+    <h1>{{ judArr.judiciary_title }}</h1>
+    <p>{{ judArr.judiciary_para }}</p>
+  </div>
+
+  <div class="wrapper" *ngFor="let judArr of judiciaryArr">
+    <h3>{{ judArr.judiciary_header }}</h3>
+    <ng-container *ngIf="judArr.judiciary_bullet">
+      <p>{{ judArr.judiciary_bullet }}</p>
+    </ng-container>
+  </div>
+  <div class="wrapper" *ngFor="let judArr of judiciaryArr">
+    <h3>{{ judArr.judiciary_header_2 }}</h3>
+    <ng-container *ngIf="judArr.judiciary_bullet_2">
+      <p>{{ judArr.judiciary_bullet_2 }}</p>
+    </ng-container>
+  </div>
+
+  <div class="wrapper" *ngFor="let judArr of judiciaryArr">
+    <p>{{ judArr.judiciary_subheader }}</p>
+  </div> -->
+
+  <!-- Judiciary topic end-->
+
+  <!-- Capacity building Start -->
+
+  <!-- <div class="wrapper" *ngFor="let buildArr of buildingArr">
+    <h1>{{ buildArr.Capacity_building_title }}</h1>
+    <p>{{ buildArr.Capacity_building_para }}</p>
+  </div>
+
+  <div class="wrapper" *ngFor="let buildArr of buildingArr">
+    <h3>{{ buildArr.Capacity_building_subheader }}</h3>
+  </div>
+
+  <div class="wrapper" *ngFor="let buildArr of buildingArr">
+    <h1>{{ buildArr.virtual_title }}</h1>
+    <ng-container *ngIf="buildArr.virtual_para">
+      <p>{{ buildArr.virtual_para }}</p>
+    </ng-container>
+
+  </div> -->
+
+  <!-- Capacity building end -->
+
+  <!-- 2nd carousel start -->
+  <!-- <div class="rc-carousel" data-rc-carousel>
+    <div class="rc-carousel-strip">
+      <div class="rc-carousel-box" data-rc-carousel-box>
+        <div
+          *ngFor="let image of images; let i = index"
+          class="rc-carousel-item"
+          [attr.data-rc-carousel-item]="i + 1"
+        >
+          <img
+            class="rc-carousel-item-image"
+            [src]="image.src"
+            [alt]="image.alt"
+          />
+        </div>
+
+        <div
+          *ngFor="let image of images; let i = index"
+          class="rc-carousel-item cloned"
+          [attr.data-rc-carousel-item]="i + images.length + 1"
+        >
+          <img
+            class="rc-carousel-item-image"
+            [src]="image.src"
+            [alt]="image.alt"
+          />
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- 2nd carousel End -->
+</div>
+
+<!-- </div> -->

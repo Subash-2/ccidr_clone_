@@ -16,13 +16,10 @@
             Training<span
               ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path
-                  d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
-                /></svg
-            ></span>
+                  d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg></span>
           </li>
           <div class="dropdown-content" [ngClass]="{ show: isDropdownOpening }">
             <p routerLink="/user/internship">Internship</p>
-            <p routerLink="/user/beneficiary">Beneficiary</p>
           </div>
         </div>
         <div
@@ -34,8 +31,7 @@
             Highlights<span
               ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path
-                  d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"
-                /></svg
+                  d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg
             ></span>
           </li>
           <div class="dropdown-content" [ngClass]="{ show: isDropdownOpen }">
@@ -99,7 +95,10 @@
       <li class="animated-text" routerLink="/user/resource">Resource</li>
       <li routerLink="/user/infrastructure">Infrastructure</li>
       <li routerLink="/user/research">Research</li>
-      <li class="animated-text" routerLink="/user/contact-us">Contact us</li>
+      <!-- <div class="contact-btn"> -->
+
+        <li class="contact-btn" routerLink="/user/contact-us" >Contact us</li>
+      <!-- </div> -->
       <ul>
         <li class="menu-bar" *ngIf="!isDrawerOpen" (click)="toggleDrawer()">
           <!-- First Icon SVG -->

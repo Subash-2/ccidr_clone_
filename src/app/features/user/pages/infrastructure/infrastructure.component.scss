@@ -8,6 +8,23 @@ $whiteshade : #f5f6fa;
   padding: 0px;
   box-sizing: border-box;
 }
+
+.resource-wrapper{
+  background: url(../../../../../assets/main/Rectangle\ 108.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  background-size: cover;
+  // opacity: 0.8;
+  height: 18rem;
+
+  .title {
+      color: $white; /* Ensure the text stands out */
+      font-size: 4rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds contrast to text */
+    }
+}
 // .bubble-container {
 //     display: flex;
 //     justify-content: center;
@@ -98,6 +115,8 @@ $whiteshade : #f5f6fa;
 }
 .structure-wrapper{
   padding: 3rem;
+  background: url(../../../../../assets/main/infrastructure.png) no-repeat center;
+
 }
 
 
@@ -290,8 +309,10 @@ svg{
   position: absolute;
   top: 0;
   height: 18rem;
+  margin-left: 2rem;
   width: 28rem;
   border-radius: 9px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   animation: fade-in 1s ease-out; /* Fade-in effect for right image */
 }
 
@@ -308,6 +329,7 @@ svg{
   height: 18rem;
   width: 28rem;
   border-radius: 9px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   animation: fade-in 1s ease-out; /* Fade-in effect for left image */
 }
 
@@ -429,7 +451,7 @@ svg{
 
 
 .title {
-  color: $black !important; /* Ensure the text stands out */
+  color: $white !important; /* Ensure the text stands out */
   font-size: 4rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds contrast to text */
 }

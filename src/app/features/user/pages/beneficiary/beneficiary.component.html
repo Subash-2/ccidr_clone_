@@ -1,104 +1,42 @@
-<div class="aboutus-wrapper">
-  <h2 class="title animated-text">Training Beneficiary</h2>
-</div>
-<!-- <div class="container-fluid">
-    <div class="" *ngFor="let newArr of beneficiaryArr">
-        <h1>{{newArr.training_beneficiaries_title}}</h1>
-        <h3>{{newArr.training_beneficiary_header}}</h3>
-        <h3>{{newArr.training_beneficiary_subheader_1}}</h3>
- 
- 
-        <ng-container *ngIf="newArr.Training_beneficiary_bullet_1">
-            <p>{{newArr.Training_beneficiary_bullet_1}}</p>
-        </ng-container>
-     </div>
- 
-     <div class="" *ngFor="let newArr of beneficiaryArr">
-      
-   
-         <h3>{{newArr.training_beneficiary_subheader_2}}</h3>
-         <ng-container *ngIf="newArr.Training_beneficiary_bullet_2">
-             <p>{{newArr.Training_beneficiary_bullet_2}}</p>
-         </ng-container>
-      </div>
-      <div class="" *ngFor="let newArr of beneficiaryArr">
-      
-   
-         <h3>{{newArr.training_beneficiary_subheader_3}}</h3>
-         <ng-container *ngIf="newArr.Training_beneficiary_bullet_3">
-             <p>{{newArr.Training_beneficiary_bullet_3}}</p>
-         </ng-container>
-      </div>
- 
-      <div class="" *ngFor="let newArr of beneficiaryArr">
-      
-   
-         <h3>{{newArr.Training_beneficiary_subheader_4}}</h3>
-         <ng-container *ngIf="newArr.Training_beneficiary_bullet_4">
-             <p>{{newArr.Training_beneficiary_bullet_4}}</p>
-         </ng-container>
-      </div>
- 
-      <div class="" *ngFor="let newArr of beneficiaryArr">
-      
-   
-         <h3>{{newArr.Training_beneficiary_subheader_5}}</h3>
-         <ng-container *ngIf="newArr.Training_beneficiary_bullet_5">
-             <p>{{newArr.Training_beneficiary_bullet_5}}</p>
-         </ng-container>
-      </div>
- 
-      <div class="" *ngFor="let newArr of beneficiaryArr">
-      
-   
-         <h3>{{newArr.Training_beneficiary_subheader_6}}</h3>
-         <ng-container *ngIf="newArr.Training_beneficiary_bullet_6">
-             <p>{{newArr.Training_beneficiary_bullet_6}}</p>
-         </ng-container>
-      </div>
-      <div class="" *ngFor="let newArr of beneficiaryArr">
-      
-   
-         <h3>{{newArr.Training_beneficiary_subheader_7}}</h3>
-         <ng-container *ngIf="newArr.Training_beneficiary_bullet_7">
-             <p>{{newArr.Training_beneficiary_bullet_7}}</p>
-         </ng-container>
-      </div>
-      <div class="" *ngFor="let newArr of beneficiaryArr">
-      
-   
-         <h3>{{newArr.Training_beneficiary_subheader_8}}</h3>
-         <ng-container *ngIf="newArr.Training_beneficiary_bullet_8">
-             <p>{{newArr.Training_beneficiary_bullet_8}}</p>
-         </ng-container>
-      </div>
-      <div class="" *ngFor="let newArr of beneficiaryArr">
-         <h3>{{newArr.Training_beneficiary_subheader_9}}</h3>
-         <ng-container *ngIf="newArr.Training_beneficiary_bullet_9">
-             <p>{{newArr.Training_beneficiary_bullet_9}}</p>
-         </ng-container>
-      </div>
-      <div class="" *ngFor="let newArr of beneficiaryArr">  
-         <h3>{{newArr.Training_beneficiary_subheader_10}}</h3>
-         <ng-container *ngIf="newArr.Training_beneficiary_bullet_10">
-             <p>{{newArr.Training_beneficiary_bullet_10}}</p>
-         </ng-container>
-      </div>
-</div> -->
 
 <div class="container-fluid">
-  <div *ngFor="let item of carouselData; let carouselIndex = index">
-    <div class="wrapper">
-      <div class="title_wrapper">
-        <h4 class="title">{{ item.heading }}</h4>
+  <div class="content-wrapper">
+  
+    
+    <div class="industry-list">
+      <div
+        *ngFor="let industry of carouselData"
+        class="industry-card"
+        [ngClass]="{ 'active-industry': activeIndustry === industry.id }"
+        (click)="setActiveIndustry(industry.id)"
+      >
+        <h3>{{ industry.heading }}</h3>
       </div>
-      <div class="para" [innerHTML]="item.text"></div>
-      <ng-container *ngIf="item.subheading || item.bullets">
-        <div class="subheader-wrapper">
-          <h4 class="subheader">{{ item.subheading }}</h4>
-          <div class="bullets" [innerHTML]="item.bullets"></div>
+    </div>
+
+    <div class="bullet-container">
+      <div
+        *ngFor="let industry of carouselData"
+        class="content-industry"
+        [ngClass]="{
+          hidden: activeIndustry !== industry.id,
+          'fade-in': activeIndustry === industry.id
+        }"
+      >
+        <div class="bullet-points">
+          <h4>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
+          {{ industry.heading }}</h4>
+          <p [innerHTML]="industry.bullets"></p>
         </div>
-      </ng-container>
+      </div>
     </div>
   </div>
 </div>
+
+
+<!-- Piechart -->
+
+
+
+

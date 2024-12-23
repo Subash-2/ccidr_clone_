@@ -1,0 +1,35 @@
+<div class="heading-text">
+  <ng-container *ngFor="let arr of homeArr">
+    <ng-container *ngIf="arr.home_title_5">
+      <div class="animated-line">
+        <h5 class="global-title">{{ arr.home_title_5 }}</h5>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+
+<div class="carousel-container">
+  <div
+    class="carousel-wrapper"
+    [style.transform]="carouselTransform"
+    [style.transition]="transitionStyle"
+  >
+    <!-- Loop through each item -->
+    <div *ngFor="let item of loopedHomeArr" class="carousel-item">
+      <div class="testimonial-card">
+        <p class="card-text">&ldquo;{{ item.home_title_5_para }}&rdquo;</p>
+        <h5>{{ item.testimonials_author }}</h5>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <button class="prev-btn" (click)="prev()">Prev</button>
+  <button class="next-btn" (click)="next()">Next</button>
+</div>
+
+
+
+<div class="progress-bar-container">
+  <div class="progress-bar" [style.width.%]="progress"></div>
+</div>

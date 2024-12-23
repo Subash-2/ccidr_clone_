@@ -1,0 +1,30 @@
+<div class="wrapper">
+    <!-- Heading Section -->
+    <div class="heading-text">
+      <ng-container *ngFor="let arr of homeArr">
+        <ng-container *ngIf="arr.home_title_3">
+          <div class="animated-line">
+            <h5 class="global-title">{{ arr.home_title_3 }}</h5>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <!-- Simple Carousel -->
+    <div class="custom-carousel">
+      <div class="carousel-container">
+        <div class="carousel-image-wrapper">
+          <img
+            [src]="images[currentIndex].newImg"
+            alt="Carousel Image"
+            class="carousel-image"
+          />
+          <div class="watermark">
+            {{ currentIndex + 1 | number: '2.0' }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="prev-btn" (click)="prevImage()">&#10094;</button>
+    <button class="next-btn" (click)="nextImage()">&#10095;</button>
+  </div>

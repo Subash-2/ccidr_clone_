@@ -1,41 +1,98 @@
-
 <div class="highlights-wrapper">
-    <h2 class="animated-text title">Events</h2>
+    <h2 class="animated-text titles">Events</h2>
   </div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="wrapper" *ngFor="let arr of eventsArr">
-            <h3>{{arr.events_header_1}}</h3>
-            <ng-container *ngIf="arr.events_bullet_1">
-                <li>{{arr.events_bullet_1}}</li>
-            </ng-container>
-        </div>
-        <div class="wrapper" *ngFor="let arr of eventsArr">
-            <h3>{{arr.events_header_2}}</h3>
-            <ng-container *ngIf="arr.events_bullet_2">
-                <li>{{arr.events_bullet_2}}</li>
-            </ng-container>
+  
+  <div *ngFor="let item of carouselData; let carouselIndex = index">
 
+    <div class="container-fluid" *ngIf="item.id % 2 !== 0">
+      <div class="wrapper">
+        <div class="title_wrapper">
+          <div class="title-container">
+            <h4 class="title">{{ item.heading }}</h4>
+            <div class="glow-underline"></div>
+          </div>
+          <div class="paragraph-container">
+            <div class="para" [innerHTML]="item.text"></div>
+          </div>
         </div>
-        <div class="wrapper" *ngFor="let arr of eventsArr">
-            <h3>{{arr.events_header_3}}</h3>
-            <p>{{arr.events_para_3}}</p>
-        </div>
-        <div class="wrapper" *ngFor="let arr of eventsArr">
-            <h3>{{arr.events_header_4}}</h3>
-            <p>{{arr.events_para_4}}</p>
-        </div>
-        <div class="wrapper" *ngFor="let arr of eventsArr">
-            <h3>{{arr.events_header_5}}</h3>
-            <p>{{arr.events_para_5}}</p>
-        </div>
-        <div class="wrapper" *ngFor="let arr of eventsArr">
-            <h3>{{arr.events_header_6}}</h3>
-            <p>{{arr.events_para_6}}</p>
-        </div>
-        <div class="wrapper" *ngFor="let arr of eventsArr">
-            <h3>{{arr.events_header_7}}</h3>
-            <p>{{arr.events_para_7}}</p>
-        </div>
+  
+        <ng-container *ngIf="item.image && item.image.length > 0">
+          <div class="carousel">
+            <div class="image-container">
+              <div class="center">
+                <div class="carousel-images">
+                  <ng-container *ngFor="let img of item.image; let i = index">
+                    <ng-container *ngIf="img">
+                      <img
+                        [src]="img"
+                        [class.active]="i === carouselIndices[carouselIndex]"
+                        class="image"
+                        alt="Carousel Image"
+                      />
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Dots with Clickable Functionality -->
+            <div class="dots-container">
+              <div
+                *ngFor="let img of item.image; let i = index"
+                class="dot"
+                [class.active]="i === carouselIndices[carouselIndex]"
+                (click)="activateImage(carouselIndex, i)"
+              ></div>
+            </div>
+          </div>
+        </ng-container>
+        
+      </div>
     </div>
-</div>
+  
+    <div class="container-fluid" *ngIf="item.id % 2 === 0">
+      <div class="wrapper">
+        <ng-container *ngIf="item.image && item.image.length > 0">
+          <div class="carousel">
+            <div class="image-container">
+              <div class="center">
+                <div class="carousel-images">
+                  <ng-container *ngFor="let img of item.image; let i = index">
+                    <ng-container *ngIf="img">
+                      <img
+                        [src]="img"
+                        [class.active]="i === carouselIndices[carouselIndex]"
+                        class="image"
+                        alt="Carousel Image"
+                      />
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Dots Navigation -->
+            <div class="dots-container">
+              <div
+                *ngFor="let img of item.image; let i = index"
+                class="dot"
+                [class.active]="i === carouselIndices[carouselIndex]"
+                (click)="activateImage(carouselIndex, i)"
+              ></div>
+            </div>
+          </div>
+        </ng-container>
+        
+        <div class="title_wrapper">
+          <div class="title-container">
+            <h4 class="title">{{ item.heading }}</h4>
+            <div class="glow-underline"></div>
+          </div>
+          <div class="paragraph-container">
+            <div class="para" [innerHTML]="item.text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

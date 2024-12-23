@@ -56,7 +56,8 @@ $whiteshade: #f5f6fa;
   align-items: center;
   img {
     height: 20rem;
-    width: 20rem;
+    width: auto;
+    max-width: 35rem;
   }
 }
 .wrapper {
@@ -83,6 +84,9 @@ $whiteshade: #f5f6fa;
   display: flex;
   justify-content: center;
   align-items: center;
+  .title{
+    font-size: 2.5rem;
+  }
 }
 
 /**Carousel*/

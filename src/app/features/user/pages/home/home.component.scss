@@ -297,30 +297,6 @@ h2 {
 }
 
 
-//animated heading
-.animated-text {
-  position: relative;
-
-  font-weight: 600;
-  color: #333;
-  cursor: pointer;
-  display: inline-block;
-}
-
-.animated-text::after {
-  content: "";
-  position: absolute;
-  width: 0px;
-  height: 3px;
-  background: linear-gradient(130deg, $blue, $red);
-  left: 0;
-  bottom: 0;
-  transition: width 0.4s ease-in-out;
-}
-
-.animated-text:hover::after {
-  width: 40%;
-}
 
 
 /**Reports*/
@@ -419,37 +395,7 @@ h2 {
   }
 }
 
-.testimonials_container {
-  display: flex;
-  flex-direction: row !important;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  h3 {
-    text-align: center;
-  }
 
-  p {
-    border: 1px dashed $blue;
-    margin: 1rem;
-    margin-top: 2rem;
-    background-color: $white;
-    border-radius: 9px;
-    min-width: 20rem;
-    max-width: 20rem;
-    min-height: 100%;
-    max-height: 100%;
-    padding: 1rem;
-  font-family: "EB Garamond", serif;
-  }
-  p:hover {
-    border: 0.5rem dashed $blue;
-    margin: 1rem;
-    background-color: $blue;
-    color: $white;
-    border-radius: 9px;
-  }
-}
 
 //Card cars
 .carousel-container {
@@ -458,23 +404,6 @@ h2 {
   overflow: hidden;
 }
 
-.carousel-wrapper {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-  min-width: 100%;
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .card {
-    p {
-      color: #494949;;
-    }
-  }
-}
 
 .card {
   border: none;
@@ -484,7 +413,6 @@ h2 {
   align-items: center;
   border-radius: 10px;
   font-size: 1rem;
-  // padding: 2rem;
 }
 
 .prev-btn,
@@ -499,12 +427,7 @@ h2 {
   cursor: pointer;
   z-index: 10;
 }
-.cars-container {
-  position: relative;
-  padding: 0rem 3rem;
-  margin: 0rem 2rem;
-  // background-color: $whiteshade;
-}
+
 
 .prev-btn {
   left: 3rem;
@@ -524,53 +447,61 @@ h2 {
   background-color: $blue;
 }
 
+/* Parent container */
 .progress-bar-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  background-color: #f0f0f0; 
   width: 100%;
-  height: 10px;
-  background-color: #e0e0e0;
-  border-radius: 5px;
-  margin-top: 10px;
-  overflow: hidden;
+
 }
 
+/* Progress bar */
 .progress-bar {
-  height: 100%;
-  background: linear-gradient(5deg, #f9c0be, $blue);
-
+  width: 50%; 
+  height: 3px; 
+  background: linear-gradient(5deg, #f9c0be, #007bff); 
   transition: width 0.3s ease-in-out;
+  border-radius: 10px; 
 }
+
+
+
+
+
+
 .arrow {
   fill: $white;
 }
-.card_text {
-  max-width: 85%;
-  font-weight: 600;
-  font-size: 1rem !important;
-}
+
 
 /**Lab Container*/
 .lab-container {
-  background-color: $blue;
+  background-color: $whiteshade;
   color: $white;
   display: flex;
   flex-direction: column;
   padding: 1rem 2rem 3rem 2rem;
+  h5{
+  color: $black !important;
+
+  }
 }
 .lab-title-text {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: $white !important;
   
 
   h3 {
      margin: 1.7rem 0rem 1.7rem 0rem;
-    color: $white !important;
+    // color: $white !important;
   }
 }
 .lab-image {
   height: auto;
-  width: 7rem;
+  width: 6rem;
 }
 .lab-containers {
   display: flex;
@@ -578,6 +509,7 @@ h2 {
   align-items: center;
   flex-wrap: wrap;
   height: auto;
+  // background-color: $white;
 }
 .img-allign {
   display: flex;
@@ -588,12 +520,21 @@ h2 {
   padding: 2rem;
   border-radius: 9px;
   margin-bottom: 1.5rem;
+  border: 2px dashed goldenrod;
+  background-color: $white;
+
+
 }
 .img-allign:hover {
-  background-color: $white;
-  color: $blue;
-  transform: scale(1.2);
-  border: 1px dotted $blue;
+  // background: url(../../../../../assets/images/Frame\ 2609448.png);
+  transform: scale(1.1);
+  // border: 1px dotted $blue;
+  border: none;
+
+  h5{
+//  color: $white !important;
+
+  }
 }
 
 /**Facilities */
@@ -620,14 +561,267 @@ h3{
   font-weight: 700 !important;
 }
 
-.testimonial-card {
-  border: none;
-  background-color: #fff;
+
+
+.hero-section{
+  width: 100%;
+  height: 95vh;
+
+  .hero-img{
+    width: 100%;
+    height: 95vh ;
+  }
+  h3 {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    color: white;
+    text-align: center; 
+    font-size: 3rem !important;
+}
+}
+
+
+
+
+//Carousel Material
+
+.material-carousel-containers{
+  display: flex;
+  // background: url(../../../../../assets/main/Rectangle\ 3463831.png) no-repeat center;
+  // opacity: 0.3;
+}
+
+.posters-img-wrapper{
+  height: 18rem;
+  width: auto;
+  position: relative;
+
+  img{
+    height: 18rem;
+    width: auto;
+    aspect-ratio: 4 / 2;
+    opacity: 0.3;
+
+  }
+}
+
+.flagship-container{
+  background: url(../../../../../assets/images/Rectangle\ 131.png);
+  background-size: 100% 100%;
+}
+
+
+/**Dual*/
+.material-carousel-containers {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.posters-img-wrapper,
+.events-img-wrapper {
+  position: relative;
+  width: 40%;
+  height: 18rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.posters-img-wrapper.active {
+  width: 60%;
+}
+
+.events-img-wrapper.active {
+  width: 60%;
+}
+
+.posters-img-wrapper:not(.active),
+.events-img-wrapper:not(.active) {
+  width: 30%;
+  opacity: 0.5;
+  filter: brightness(50%);
+}
+
+.posters-img-wrapper .carousel,
+.events-img-wrapper .carousel {
+  display: flex;
+  overflow-x: hidden;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  height: 100%;
+}
+
+/* Custom scrollbar design */
+.posters-img-wrapper .carousel::-webkit-scrollbar,
+.events-img-wrapper .carousel::-webkit-scrollbar {
+  height: 8px; /* Horizontal scrollbar height */
+}
+
+.posters-img-wrapper .carousel::-webkit-scrollbar-thumb,
+.events-img-wrapper .carousel::-webkit-scrollbar-thumb {
+  background: #888; /* Scrollbar thumb color */
+  border-radius: 10px; /* Rounded scrollbar thumb */
+}
+
+.posters-img-wrapper .carousel::-webkit-scrollbar-thumb:hover,
+.events-img-wrapper .carousel::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker color on hover */
+}
+
+.posters-img-wrapper .carousel::-webkit-scrollbar-track,
+.events-img-wrapper .carousel::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+  border-radius: 10px; /* Rounded scrollbar track */
+}
+
+.posters-img-wrapper .carousel-item,
+.events-img-wrapper .carousel-item {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.posters-img-wrapper .carousel-item img,
+.events-img-wrapper .carousel-item img {
+  height: 75%;
+  width: auto;
+  // background-size: 50% 75%;
+
+  border-radius: 8px;
+  border-radius: 0px !important;
+}
+
+.posters-img-wrapper.active .carousel-item img,
+.events-img-wrapper.active .carousel-item img {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.material-title {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 2;
+  color: white;
+  font-size: 1.5rem;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+.material-carousel-containers::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.material-carousel-containers::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #7a7a7a, #bdbdbd); /* Gradient thumb */
   border-radius: 10px;
-  font-size: 1rem;
-  width: 80%;
-  padding: 2rem;
+  border: 2px solid #f0f0f0; /* Matches the track for a seamless look */
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Adds depth to the thumb */
+}
+
+/* Track customization */
+.material-carousel-containers::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+/* Hover effect for the thumb */
+.material-carousel-containers::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #555, #999); /* Darker gradient on hover */
+  box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+/* Optional: Track hover effect for visual feedback */
+.material-carousel-containers::-webkit-scrollbar-track:hover {
+  background-color: #e0e0e0;
+}
+
+.public-carousel-item{
+  min-width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  max-height: 250px;
+}
+
+//Testimonial Carousel Final 
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  background-color: $white;
+  position: absolute;
+  transform: translate(-50%,50%);
+  .carousel-item {
+    min-width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    max-height: 250px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 0px 2rem 0px 2rem;
+  
+    .card {
+    overflow-y: auto;
+      p {
+        color: #494949;;
+      }
+    }
+  }
+}
+
+.card_text {
+  max-width: 85%;
+  font-weight: 600;
+  font-size: 1rem !important;
+}
+
+
+.open-quotes{
+  font-size: 3rem;
+  fill: $blue;
+}
+
+.closed-quotes{
+  font-size: 3rem;
+  fill: $blue;
+  transform: rotate(180deg);
+}
+
+.testimonial-carousel-container {
+  position: relative;
+  padding: 0rem 3rem;
+  margin: 0rem 2rem;
+  // background-color: $whiteshade;
+}
+
+.author-container{
+  background: red;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-background-shake{
+  background-color: $blue;
+  height: 350px;
+  position: relative;
+
+
 }

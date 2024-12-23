@@ -1,24 +1,170 @@
-<!-- <div class="container-fluid">
-    <div class="row">
-    </div>
-
-    <div class="title-container" id="title" *ngIf="textToShow">
-        <h1 class="animated-text">{{ textToShow }}</h1>
-      </div>
-
-</div> -->
-
 <div class="training-wrapper">
   <h2 class="animated-text title">Internship</h2>
 </div>
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="wrapper" *ngFor="let arr of internshipArr">
-      <h2>{{ arr.internship_header }}</h2>
+  <div class="animated-line">
+    <h5 class="global-title">Capacity Building Programs for Police</h5>
+  </div>
 
-      <p>{{ arr.internship_para }}</p>
+  <div *ngFor="let item of internshipData; let carouselIndex = index">
+    <div class="para" [innerHTML]="item.paragraph"></div>
+  </div>
+
+  <!-- <div class="wrapper">
+    <div *ngFor="let item of internshipData; let carouselIndex = index">
+      <div class="wrapper">
+        <div class="title_wrapper">
+          <h4 class="title">{{ item.heading }}</h4>
+        </div>
+        <div
+           [innerHTML]="item.subheading">
+        </div>
+        <div
+        [innerHTML]="item.bullets">
+     </div>
+      </div>
     </div>
+  </div> -->
+
+  <!-- <div class="tabs-container">
+    <div class="tabs">
+      <button 
+        *ngFor="let tab of internshipData; let i = index" 
+        class="tab-button" 
+        [class.active]="activeTab === i"
+        (click)="activeTab = i">
+        {{ tab.heading }}
+      </button>
+    </div>
+  
+    <div class="tab-content">
+      <div *ngIf="internshipData[activeTab]">
+        <div class="content-wrapper">
+          <div class="title-wrapper">
+            <h4 class="title">{{ internshipData[activeTab].heading }}</h4>
+          </div>
+          <div class="subheading" [innerHTML]="internshipData[activeTab].subheading"></div>
+          <div class="bullets" [innerHTML]="internshipData[activeTab].bullets"></div>
+        </div>
+
+      </div>
+    </div>
+  </div> -->
+  <div class="tabs-container">
+    <div class="tabs">
+      <button
+        *ngFor="let tab of internshipData; let i = index"
+        class="tab-button"
+        [class.active]="activeTab === i"
+        (click)="activeTab = i"
+      >
+        {{ tab.heading }}
+      </button>
+    </div>
+  
+    <!-- Single long scroll bar -->
+    <!-- <div class="long-scroll-bar">
+      <div
+        class="scroll-segment"
+        *ngFor="let tab of internshipData; let i = index"
+        [class.active]="activeTab === i"
+      ></div>
+    </div>
+  
+    <div class="tab-content">
+      <div *ngIf="internshipData[activeTab]">
+        <div class="content-wrapper">
+          <div class="title-wrapper">
+            <h4 class="title">{{ internshipData[activeTab].heading }}</h4>
+          </div>
+          <div class="subheading" [innerHTML]="internshipData[activeTab].subheading"></div>
+          <div class="bullets" [innerHTML]="internshipData[activeTab].bullets"></div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+  <div class="long-scroll-bar">
+    <div
+      class="scroll-segment"
+      *ngFor="let tab of internshipData; let i = index"
+      [class.active]="activeTab === i"
+    ></div>
+  </div>
+  
+  <div class="tab-content">
+    <div *ngIf="internshipData[activeTab]">
+      <div class="content-wrapper">
+        <div class="title-wrapper">
+          <h4 class="title">{{ internshipData[activeTab].heading }}</h4>
+        </div>
+        <div class="bullets">
+          <div *ngFor="let bullet of internshipData[activeTab]?.bullets">
+            <p class="main-text">{{ bullet.mainText }}</p>
+            <!-- <ul> -->
+              <li *ngFor="let subText of bullet.subTexts">{{ subText }}</li>
+            <!-- </ul> -->
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  
+  
+  
+  
+
+<!-- Carousel Image  -->
+<div class="carousel" *ngIf="images.length">
+  <div class="img-container-wrapper">
+    <div
+      class="img-container"
+      *ngFor="let img of images; let i = index"
+      [ngClass]="{
+        'active': currentIndex === i,
+        'left': (currentIndex - 1 + images.length) % images.length === i,
+        'right': (currentIndex + 1) % images.length === i
+      }"
+    >
+      <img [src]="img" alt="Internship Image" class="internship-image"/>
+    </div>
+  </div>
+
+  <!-- Carousel Controls -->
+  <div class="carousel-controls">
+    <button (click)="prev()">Prev</button>
+    <button (click)="next()">Next</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div class="container-fluid">
+
+<div class="paragraph-container">
+  <div class="wrapper" *ngFor="let arr of internshipArr">
+    <p>{{ arr.internship_para }}</p>
+  </div>
+</div>
+
+
+  <div class="row">
+   
     <div class="wrapper" *ngFor="let arr of internshipArr">
       <h4>{{ arr.internship_subheader_1 }}</h4>
       <strong>{{ arr.internship_subheader_title_1 }}</strong>
@@ -88,11 +234,8 @@
       </ul>
     </div>
   </div>
-</div>
-
-
-
-<div class="container">
+</div> -->
+  <!-- <div class="container">
   <div id="carousel" class="carousel">
     <div class="carousel-inner">
       <div 
@@ -101,7 +244,6 @@
         [class.active]="i === currentSlide"
         [ngStyle]="{'background-image': 'url(' + slide.imageUrl + ')'}"
       >
-        <!-- Optional content for each slide can go here -->
       </div>
     </div>
     
@@ -122,4 +264,5 @@
   
   
   
+</div> -->
 </div>
